@@ -1,0 +1,117 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(../Media/login-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 78vh;
+    padding-left: 140px;
+}
+
+.pb-3 {
+    width: 50%;
+}
+
+    .pb-3 h1 {
+        font-size: 25px;
+        font-weight: bold;
+        padding-left: 35%;
+    }
+
+.login-container {
+    height: 320px;
+    padding-top: 36px;
+    padding-bottom: 40px;
+    width: 85%;
+    background-color: #DDDDDD;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #EEEEEE;
+}
+
+.login-invalid {
+    background-color: #FF4C4C;
+    margin: 0 30px;
+    padding: 9px 14px 2px 14px;
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-element {
+    width: 60%;
+    padding: 2px 1px;
+}
+
+    .form-element label {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .form-element input {
+        padding: 6px;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+.form-checkbox label {
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+.form-checkbox input {
+    height: 13px;
+    width: 13px;
+}
+
+.form-footer {
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    left: 35%;
+    top: 20px;
+    color: black;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    margin: 5px 60px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    display: block;
+    width: 60%;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #76885B;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #627254;
+    border-color: #627254;
+}

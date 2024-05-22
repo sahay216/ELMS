@@ -1,0 +1,63 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #EEEEEE;
+    margin: 0;
+}
+.container{
+    padding:2px;
+}
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.box-card {
+    width: 340px;
+    height: 220px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 12px;
+    transition: transform 0.2s;
+}
+
+    .box-card:active {
+        transform: scale(1.05);
+    }
+
+.box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .box-header h2 {
+        margin: 0;
+        font-size: 1.25em;
+        color: #627254;
+        width: 100%;
+    }
+
+    .box-header hr {
+        flex-grow: 1;
+        margin-left: 10px;
+        border: none;
+        border-top: 2px solid #DDDDDD;
+        
+    }
+
+.card-content {
+    border-radius: 5px;
+    padding: 3px;
+    color: #333333;
+}
+
+.birthday-item {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}

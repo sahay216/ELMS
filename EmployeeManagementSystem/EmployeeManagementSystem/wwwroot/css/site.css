@@ -1,0 +1,163 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+ 
+}
+a{
+    color: black;
+}
+.navbar-nav{
+    display: flex;
+    justify-content:space-between;
+
+}
+.nav-options{
+    display:flex;
+
+}
+.nav-link{
+    color: black;
+    padding: 10px 60px;
+    font: 44px;
+
+}
+.navbar-admin {
+    background-color: #76885B;
+}
+
+/* Card styling */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-header {
+    font-weight: bold;
+    background-color: #76885B;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    color: #fff;
+}
+
+.card-body {
+    padding: 15px;
+    background-color: #DDDDDD;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+    /* Label styling */
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+/* Input field styling */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f8f9fa;
+    font-size: 1em;
+    color: #495057;
+}
+
+    /* Focus state for input fields */
+    .form-control:focus {
+        border-color: #76885B;
+        outline: none;
+        box-shadow: 0 0 5px rgba(118, 136, 91, 0.25);
+        background-color: #e9ecef;
+    }
+
+    /* Placeholder styling */
+    .form-control::placeholder {
+        color: #6c757d;
+        opacity: 1; /* Ensures placeholder text is not transparent */
+    }
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust spacing as needed */
+}
+
+.search-enter {
+    width: 200px; /* Adjust width as needed */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* Rounded corners on the left */
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-left: none; /* No border on the left side to merge with input */
+    border-radius: 0 4px 4px 0; /* Rounded corners on the right */
+    background-color: #76885B;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+    .search-button:hover {
+        background-color: #627254;
+    }
+
+/* Submit button styling */
+.btn-primary {
+    background-color: #76885B;
+    border-color: #627254;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background-color: #627254;
+        border-color: #505d43;
+    }
+
+
+/* Invalid feedback styling */
+.invalid-feedback {
+    color: red;
+    font-size: 0.875em;
+    display: none;
+}
+
+/* Show invalid feedback when form-control is invalid */
+.form-control:invalid + .invalid-feedback {
+    display: block;
+}

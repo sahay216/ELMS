@@ -1,0 +1,122 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "User Dashboard";
+}
+<!DOCTYPE html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="@Url.Content("~/css/UserDashboard.css")" /> 
+    </head>
+    <body>
+        <div class="main-content">
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+                <h2>Attendance</h2>
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+                <h2>Birthday</h2>
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+               <h2>Public Holiday</h2> 
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+                <h2>Leaves</h2>
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+                <h2>Files</h2>
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+                <h2>New Hires</h2>
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+        <div class="box-card" draggable="true">
+            <div class="box-header">
+                <h2>Request For Approval</h2>
+            </div>
+            <span> <hr> </span>
+            <div class="card-content">
+                Content
+            </div>
+        </div>
+    </body>
+    <script>
+    const boxes = document.querySelectorAll('.box-card');
+    let draggedBox = null;
+
+    boxes.forEach(box => {
+        box.addEventListener('dragstart', (e) => {
+            draggedBox = box;
+            setTimeout(() => {
+                box.style.display = 'none';
+            }, 0);
+        });
+
+        box.addEventListener('dragend', (e) => {
+            setTimeout(() => {
+                draggedBox.style.display = 'block';
+                draggedBox = null;
+            }, 0);
+        });
+
+        box.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        box.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            box.classList.add('drag-over');
+        });
+
+        box.addEventListener('dragleave', (e) => {
+            box.classList.remove('drag-over');
+        });
+
+        box.addEventListener('drop', (e) => {
+            box.classList.remove('drag-over');
+            if (draggedBox !== box) {
+                let temp = box.innerHTML;
+                box.innerHTML = draggedBox.innerHTML;
+                draggedBox.innerHTML = temp;
+            }
+        });
+    });
+
+    </script>
+</html>

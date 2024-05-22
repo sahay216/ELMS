@@ -1,0 +1,14 @@
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\bin\Debug\net8.0\deleteItlater.exe
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\bin\Debug\net8.0\deleteItlater.deps.json
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\bin\Debug\net8.0\deleteItlater.runtimeconfig.json
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\bin\Debug\net8.0\deleteItlater.dll
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\bin\Debug\net8.0\deleteItlater.pdb
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.AssemblyInfoInputs.cache
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.AssemblyInfo.cs
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.csproj.CoreCompileInputs.cache
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.dll
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\refint\deleteItlater.dll
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.pdb
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\deleteItlater.genruntimeconfig.cache
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\deleteItlater\obj\Debug\net8.0\ref\deleteItlater.dll

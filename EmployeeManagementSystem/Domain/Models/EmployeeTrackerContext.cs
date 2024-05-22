@@ -1,0 +1,250 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+
+namespace Domain.Models;
+
+public partial class EmployeeTrackerContext : DbContext
+{
+    public EmployeeTrackerContext()
+    {
+    }
+
+    public EmployeeTrackerContext(DbContextOptions<EmployeeTrackerContext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<ApplicationMessage> ApplicationMessages { get; set; }
+
+    public virtual DbSet<AttendanceRecord> AttendanceRecords { get; set; }
+
+    public virtual DbSet<Company> Company { get; set; }
+
+    public virtual DbSet<EmailNotification> EmailNotifications { get; set; }
+
+    public virtual DbSet<EmployeeDetail> EmployeeDetails { get; set; }
+
+    public virtual DbSet<LeaveApplication> LeaveApplications { get; set; }
+
+    public virtual DbSet<LeaveBalance> LeaveBalances { get; set; }
+
+    public virtual DbSet<LeaveType> LeaveTypes { get; set; }
+
+    public virtual DbSet<PublicHoliday> PublicHolidays { get; set; }
+
+    public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<UserDetail> UserDetails { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=EmployeeTracker;Trusted_Connection=True;TrustServerCertificate=true;");
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<ApplicationMessage>(entity =>
+        {
+            entity.HasKey(e => e.MessageId).HasName("PK__Applicat__C87C037CD86DB3BD");
+
+            entity.Property(e => e.MessageId)
+                .ValueGeneratedNever()
+                .HasColumnName("MessageID");
+            entity.Property(e => e.ReceiverId).HasColumnName("ReceiverID");
+            entity.Property(e => e.SenderId).HasColumnName("SenderID");
+            entity.Property(e => e.SentTimeDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Receiver).WithMany(p => p.ApplicationMessageReceivers)
+                .HasForeignKey(d => d.ReceiverId)
+                .HasConstraintName("FK__Applicati__Recei__17036CC0");
+
+            entity.HasOne(d => d.Sender).WithMany(p => p.ApplicationMessageSenders)
+                .HasForeignKey(d => d.SenderId)
+                .HasConstraintName("FK__Applicati__Sende__160F4887");
+        });
+
+        modelBuilder.Entity<AttendanceRecord>(entity =>
+        {
+            entity.HasKey(e => e.RecordId).HasName("PK__Attendan__FBDF78C96D7A0D6E");
+
+            entity.ToTable("Attendance_Records");
+
+            entity.Property(e => e.RecordId)
+                .ValueGeneratedNever()
+                .HasColumnName("RecordID");
+            entity.Property(e => e.CheckInTime).HasColumnType("datetime");
+            entity.Property(e => e.CheckOutTime).HasColumnType("datetime");
+            entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            entity.Property(e => e.TotalHours).HasColumnName("Total_Hours");
+
+            entity.HasOne(d => d.Employee).WithMany(p => p.AttendanceRecords)
+                .HasForeignKey(d => d.EmployeeId)
+                .HasConstraintName("FK__Attendanc__Emplo__0F624AF8");
+        });
+
+        modelBuilder.Entity<Company>(entity =>
+        {
+            entity.HasKey(e => e.CompanyId).HasName("PK__Companie__2D971C4C3609FFEE");
+
+            entity.ToTable("Company");
+
+            entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+            entity.Property(e => e.CompanyName).HasMaxLength(255);
+            entity.Property(e => e.Country).HasMaxLength(100);
+            entity.Property(e => e.DomainName).HasMaxLength(100);
+            entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.Industry).HasMaxLength(100);
+            entity.Property(e => e.Location).HasMaxLength(255);
+            entity.Property(e => e.Phone).HasMaxLength(20);
+            entity.Property(e => e.Website).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<EmailNotification>(entity =>
+        {
+            entity.HasKey(e => e.NotificationId).HasName("PK__EmailNot__20CF2E327196D68A");
+
+            entity.ToTable("EmailNotification");
+
+            entity.Property(e => e.NotificationId)
+                .ValueGeneratedNever()
+                .HasColumnName("NotificationID");
+            entity.Property(e => e.LeaveType).HasMaxLength(50);
+            entity.Property(e => e.RecipientEmail).HasMaxLength(150);
+            entity.Property(e => e.ReferenceId).HasColumnName("ReferenceID");
+            entity.Property(e => e.SentTime).HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Subject).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<EmployeeDetail>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.Property(e => e.Department).HasMaxLength(255);
+            entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
+
+            entity.HasOne(d => d.Employee).WithMany()
+                .HasForeignKey(d => d.EmployeeId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__EmployeeD__Emplo__0D7A0286");
+
+            entity.HasOne(d => d.Manager).WithMany()
+                .HasForeignKey(d => d.ManagerId)
+                .HasConstraintName("FK__EmployeeD__Manag__0E6E26BF");
+        });
+
+        modelBuilder.Entity<LeaveApplication>(entity =>
+        {
+            entity.HasKey(e => e.LeaveId).HasName("PK__Leave_Ap__796DB97965B7D9A1");
+
+            entity.ToTable("Leave_Application");
+
+            entity.Property(e => e.LeaveId)
+                .ValueGeneratedNever()
+                .HasColumnName("LeaveID");
+            entity.Property(e => e.ApplicationStatus).HasMaxLength(50);
+            entity.Property(e => e.AppliedOn).HasColumnType("datetime");
+            entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            entity.Property(e => e.LeaveTypeId).HasColumnName("LeaveTypeID");
+            entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
+
+            entity.HasOne(d => d.Employee).WithMany(p => p.LeaveApplicationEmployees)
+                .HasForeignKey(d => d.EmployeeId)
+                .HasConstraintName("FK__Leave_App__Emplo__0B91BA14");
+
+            entity.HasOne(d => d.Manager).WithMany(p => p.LeaveApplicationManagers)
+                .HasForeignKey(d => d.ManagerId)
+                .HasConstraintName("FK__Leave_App__Manag__0C85DE4D");
+        });
+
+        modelBuilder.Entity<LeaveBalance>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("Leave_Balance");
+
+            entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+
+            entity.HasOne(d => d.Employee).WithMany()
+                .HasForeignKey(d => d.EmployeeId)
+                .HasConstraintName("FK__Leave_Bal__Emplo__0A9D95DB");
+        });
+
+        modelBuilder.Entity<LeaveType>(entity =>
+        {
+            entity.HasKey(e => e.LeaveTypeId).HasName("PK__Leave_Ty__43BE8FF4D1AACC75");
+
+            entity.ToTable("Leave_Type");
+
+            entity.Property(e => e.LeaveTypeId).HasColumnName("LeaveTypeID");
+            entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+            entity.Property(e => e.CompensatoryOff).HasColumnName("CompensatoryOFF");
+            entity.Property(e => e.IsGlobal)
+                .HasDefaultValue(false)
+                .HasColumnName("isGlobal");
+            entity.Property(e => e.LeaveTypeName).HasMaxLength(120);
+
+            entity.HasOne(d => d.Company).WithMany(p => p.LeaveTypes)
+                .HasForeignKey(d => d.CompanyId)
+                .HasConstraintName("FK__Leave_Typ__Compa__29221CFB");
+        });
+
+        modelBuilder.Entity<PublicHoliday>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("Public_Holidays");
+
+            entity.Property(e => e.Description).HasMaxLength(255);
+            entity.Property(e => e.HolidayId).HasColumnName("HolidayID");
+            entity.Property(e => e.Name).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.RoleId).HasName("PK__Roles__8AFACE3AF3BC3A41");
+
+            entity.HasIndex(e => e.RoleName, "UQ__Roles__8A2B61606E30566A").IsUnique();
+
+            entity.Property(e => e.RoleId)
+                .ValueGeneratedNever()
+                .HasColumnName("RoleID");
+            entity.Property(e => e.RoleName).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<UserDetail>(entity =>
+        {
+            entity.HasKey(e => e.UserId).HasName("PK__UserDeta__1788CCAC7E4C6BB8");
+
+            entity.HasIndex(e => e.Email, "UQ__UserDeta__A9D10534E8DF078E").IsUnique();
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+            entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.FirstName).HasMaxLength(255);
+            entity.Property(e => e.Gender).HasMaxLength(10);
+            entity.Property(e => e.IsDeleted).HasColumnName("isDeleted");
+            entity.Property(e => e.LanguagePreference).HasMaxLength(50);
+            entity.Property(e => e.LastName).HasMaxLength(255);
+            entity.Property(e => e.PhoneNumber).HasMaxLength(15);
+            entity.Property(e => e.RoleId).HasColumnName("RoleID");
+            entity.Property(e => e.SocialMedias).HasMaxLength(255);
+            entity.Property(e => e.UserRole).HasMaxLength(50);
+
+            entity.HasOne(d => d.Company).WithMany(p => p.UserDetails)
+                .HasForeignKey(d => d.CompanyId)
+                .HasConstraintName("FK__UserDetai__Compa__282DF8C2");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.UserDetails)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK__UserDetai__RoleI__07C12930");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}

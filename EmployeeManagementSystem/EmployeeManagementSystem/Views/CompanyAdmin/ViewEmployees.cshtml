@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@* @using Domain.ViewModels;
+@{
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+@model List<Domain.ViewModels.ViewEmployee>
+@section Styles{
+    <link rel="stylesheet" href="~/css/ViewEmployees.css" />
+}
+<div class="container">
+    <div class="header">
+        <div class="cell">Employee ID</div>
+        <div class="cell">Name</div>
+        <div class="cell">Email</div>
+        <div class="cell">Phone Number</div>
+        <div class="cell">Address</div>
+        <div class="cell">Date of Birth</div>
+        <div class="cell">Role</div>
+        <div class="cell">Gender</div>
+        <div class="cell">Actions</div>
+    </div>
+    @foreach (var employee in Model)
+    {
+        <div class="row">
+            <div class="cell">@employee.employeeId</div>
+            <div class="cell cell-name">@employee.employeeName</div>
+            <div class="cell">@employee.employeeEmail</div>
+            <div class="cell">@employee.employeePhoneNumber</div>
+            <div class="cell">@employee.employeeAddress</div>
+            <div class="cell">@employee.employeeDOB.ToShortDateString()</div>
+            <div class="cell">@employee.employeeRole</div>
+            <div class="cell">@employee.employeeGender</div>
+            <div class="cell">
+                <a class="btn btn-link" href="@Url.Action("EditEmployee", new { id = @employee.employeeId })">
+                    <i class="fas fa-edit">h</i>
+                </a>
+            </div>
+        </div>
+    }
+</div>
+ *@
+  @using Domain.ViewModels;
+@{
+    Layout = "../Shared/_LayoutAdmin.cshtml";
+}
+@model List<Domain.ViewModels.ViewEmployee>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/ViewEmployees.css" />
+}
+@{
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <th>Date of Birth</th>
+                        <th>Role</th>
+                        <th>Gender</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@employee.employeeId</td>
+                            <td>@employee.employeeName</td>
+                            <td>@employee.employeeEmail</td>
+                            <td>@employee.employeePhoneNumber</td>
+                            <td>@employee.employeeAddress</td>
+                            <td>@employee.employeeDOB.ToShortDateString()</td>
+                            <td>@employee.employeeRole</td>
+                            <td>@employee.employeeGender</td>
+                            <td>
+                                <a class="btn btn-link edit" href="@Url.Action("EditEmployee", new { id = @employee.employeeId })">
+                                    Edit
+                                </a>
+                                <a class="btn btn-link delete" href="@Url.Action("DeleteEmployee", new { id = @employee.employeeId })">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  }
+

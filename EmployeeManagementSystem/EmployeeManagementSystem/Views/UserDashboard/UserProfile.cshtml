@@ -1,0 +1,59 @@
+﻿  @using Domain.ViewModels;
+@model List<Domain.ViewModels.UserProfile>
+
+@{
+    ViewBag.Title = "User Profile";
+}
+<!DOCTYPE html>
+    <head>
+        <title></title>
+    <link rel="stylesheet" href="@Url.Content("~/css/UserProfile.css")"  />
+    
+</head>
+    <body>
+    <div class="container">
+        <div class="content">
+            <h2>User Profile</h2>
+            @foreach (var profile in Model)
+            {
+                <div class="user-profile">
+                    <div class="profile-header">
+                        @if (!string.IsNullOrEmpty(profile.ProfilePicture))
+                        {
+                            <img src="@Url.Content($"~/profilePicture/{profile.ProfilePicture}")" alt="Profile Image" class="profile-image">
+                        }
+                        else
+                        {
+                            <div class="default-profile-image"></div>
+                        }
+                        <div class="profile-details">
+                            <h3>@profile.FullName</h3>
+                            <p>@profile.Email</p>
+                        </div>
+                        <a href="#" class="edit-button">Edit</a>
+                    </div>
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <p><strong>Full Name:</strong> @profile.FullName</p>
+                            <p><strong>Phone No:</strong> @profile.PhoneNumber</p>
+                        </div>
+                        <div class="info-item">
+                            <p><strong>Gender:</strong> @profile.Gender</p>
+                            <p><strong>Address:</strong> @profile.Address</p>
+                        </div>
+                        <div class="info-item">
+                            <p><strong>Language:</strong> @profile.LanguagePreference</p>
+                            <p><strong>DOB:</strong> @profile.DateOfBirth</p>
+                        </div>
+                        <div class="info-item">
+                            <p><strong>Role:</strong> @profile.UserRole</p>
+                            <p><strong>Date Of Joining:</strong> @profile.CreatedAt</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </body>
+</html>
+
+

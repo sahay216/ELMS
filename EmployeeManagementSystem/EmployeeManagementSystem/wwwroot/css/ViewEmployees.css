@@ -1,0 +1,63 @@
+﻿/* Table container */
+.container {
+    padding: 20px; /* Padding around the container */
+}
+
+/* Table styling */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    /* Table header styling */
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+        background-color: #76885B;
+        color: #fff;
+        text-align: center;
+    }
+
+    /* Table body styling */
+    .table tbody + tbody {
+        border-top: 2px solid #dee2e6;
+    }
+
+/* Table row hover effect */
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+/* Action button styling */
+.btn-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 5px;
+    background-color: #76885B;
+    padding: 5px 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+    .btn-link:hover edit {
+        background-color: #627254;
+    }
+    .btn-link:hover delete{
+        background-color: red;
+    }
+
+/* Center-align the text in the table cells */
+.table th,
+.table td {
+    text-align: center;
+}
