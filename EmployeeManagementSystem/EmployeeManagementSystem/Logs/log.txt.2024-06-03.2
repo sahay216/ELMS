@@ -1,0 +1,42 @@
+2024-06-03 19:52:17,147 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:52:17,163 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 17ms reading results.
+ 2024-06-03 19:52:17,164 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:52:17,166 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-06-03 19:52:17,178 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<Company>()
+    .FirstOrDefault(u => u.Email == __UserEmail_0)'
+ 2024-06-03 19:52:17,185 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Company>(
+    asyncEnumerable: new SingleQueryingEnumerable<Company>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Company.CompanyId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Company.Address (string), 1], [Property: Company.CompanyName (string) Required MaxLength(255), 2], [Property: Company.Country (string) MaxLength(100), 3], [Property: Company.DateOfEstablishment (DateOnly?), 4], [Property: Company.DomainName (string) MaxLength(100), 5], [Property: Company.Email (string) MaxLength(255), 6], [Property: Company.Industry (string) MaxLength(100), 7], [Property: Company.Location (string) MaxLength(255), 8], [Property: Company.NumberOfEmployees (int?), 9], [Property: Company.PasswordHash (string), 10], [Property: Company.PasswordSalt (string), 11], [Property: Company.Phone (string) MaxLength(20), 12], [Property: Company.Website (string) MaxLength(255), 13] }
+            SELECT TOP(1) c.CompanyID, c.Address, c.CompanyName, c.Country, c.DateOfEstablishment, c.DomainName, c.Email, c.Industry, c.Location, c.NumberOfEmployees, c.PasswordHash, c.PasswordSalt, c.Phone, c.Website
+            FROM Company AS c
+            WHERE c.Email == @__UserEmail_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Company>, 
+        Domain.Models.EmployeeTrackerContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+ 2024-06-03 19:52:17,187 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:52:17,189 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:52:17,190 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-03 19:52:17,192 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-06-03 19:52:17,193 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-06-03 19:52:17,194 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__UserEmail_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyID], [c].[Address], [c].[CompanyName], [c].[Country], [c].[DateOfEstablishment], [c].[DomainName], [c].[Email], [c].[Industry], [c].[Location], [c].[NumberOfEmployees], [c].[PasswordHash], [c].[PasswordSalt], [c].[Phone], [c].[Website]
+FROM [Company] AS [c]
+WHERE [c].[Email] = @__UserEmail_0
+ 2024-06-03 19:52:17,197  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (4ms) [Parameters=[@__UserEmail_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyID], [c].[Address], [c].[CompanyName], [c].[Country], [c].[DateOfEstablishment], [c].[DomainName], [c].[Email], [c].[Industry], [c].[Location], [c].[NumberOfEmployees], [c].[PasswordHash], [c].[PasswordSalt], [c].[Phone], [c].[Website]
+FROM [Company] AS [c]
+WHERE [c].[Email] = @__UserEmail_0
+ 2024-06-03 19:52:17,199 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:52:17,200 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 1ms reading results.
+ 2024-06-03 19:52:17,200 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 

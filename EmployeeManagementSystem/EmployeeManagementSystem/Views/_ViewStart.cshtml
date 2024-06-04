@@ -1,3 +1,23 @@
-﻿@{
+﻿@using System.Security.Claims
+
+@{
     Layout = "_Layout";
+    @if (User.Identity.IsAuthenticated)
+    {
+        var userClaims = User.Identity as ClaimsIdentity;
+        var roles = userClaims?.FindAll(ClaimTypes.Role).Select(r => r.Value);
+        
+        if(roles != null)
+        {
+            if (roles.Contains("Admin"))
+            {
+                Layout = "_LayoutAdmin";
+            }
+            else if (roles.Contains("Employee") || roles.Contains("Manager"))
+            {
+                Layout = "_Layout";
+            }
+        }
+
+    }
 }

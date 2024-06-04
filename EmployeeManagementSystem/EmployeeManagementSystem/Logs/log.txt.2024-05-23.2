@@ -1,0 +1,53 @@
+2024-05-23 18:18:38,076 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,090 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 14ms reading results.
+ 2024-05-23 18:18:38,092 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,094 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (2ms).
+ 2024-05-23 18:18:38,106 DEBUG Microsoft.EntityFrameworkCore.Update.? [?] - MESSAGE: SaveChanges starting for 'EmployeeTrackerContext'.
+ 2024-05-23 18:18:38,111 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: DetectChanges starting for 'EmployeeTrackerContext'.
+ 2024-05-23 18:18:38,158 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: The unchanged property 'UserDetail.LastLoginDate' was detected as changed and will be marked as modified. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+ 2024-05-23 18:18:38,174 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: An entity of type 'UserDetail' tracked by 'EmployeeTrackerContext' changed state from 'Unchanged' to 'Modified'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-23 18:18:38,203 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: DetectChanges completed for 'EmployeeTrackerContext'.
+ 2024-05-23 18:18:38,271 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,273 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,275 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-05-23 18:18:38,277 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-05-23 18:18:38,278 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-05-23 18:18:38,280 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [UserDetails] SET [LastLoginDate] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+ 2024-05-23 18:18:38,290  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (11ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [UserDetails] SET [LastLoginDate] = @p0
+OUTPUT 1
+WHERE [UserID] = @p1;
+ 2024-05-23 18:18:38,294 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,296 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 3ms reading results.
+ 2024-05-23 18:18:38,297 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,298 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-05-23 18:18:38,308 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: An entity of type 'UserDetail' tracked by 'EmployeeTrackerContext' changed state from 'Modified' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-23 18:18:38,311 DEBUG Microsoft.EntityFrameworkCore.Update.? [?] - MESSAGE: SaveChanges completed for 'EmployeeTrackerContext' with 1 entities written to the database.
+ 2024-05-23 18:18:38,313 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .FirstOrDefault(u => u.Email == __userEmail_0)'
+ 2024-05-23 18:18:38,321 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<UserDetail>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: UserDetail.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: UserDetail.Address (string), 1], [Property: UserDetail.CompanyId (int?) FK Index, 2], [Property: UserDetail.CompanyName (string), 3], [Property: UserDetail.CreatedAt (DateTime?), 4], [Property: UserDetail.DateOfBirth (DateOnly) Required, 5], [Property: UserDetail.Email (string) Required Index MaxLength(255), 6], [Property: UserDetail.FirstName (string) Required MaxLength(255), 7], [Property: UserDetail.Gender (string) MaxLength(10), 8], [Property: UserDetail.IsDeleted (bool) Required, 9], [Property: UserDetail.LanguagePreference (string) MaxLength(50), 10], [Property: UserDetail.LastLoginDate (DateTime?), 11], [Property: UserDetail.LastName (string) Required MaxLength(255), 12], [Property: UserDetail.PasswordHash (string), 13], [Property: UserDetail.PasswordSalt (string), 14], [Property: UserDetail.PhoneNumber (string) MaxLength(15), 15], [Property: UserDetail.ProfilePicture (string), 16], [Property: UserDetail.RoleId (int?) FK Index, 17], [Property: UserDetail.SecurityAnswer (string), 18], [Property: UserDetail.SecurityQuestion (string), 19], [Property: UserDetail.SocialMedias (string) MaxLength(255), 20], [Property: UserDetail.UpdatedAt (DateTime?), 21], [Property: UserDetail.UserRole (string) MaxLength(50), 22] }
+        SELECT TOP(1) u.UserID, u.Address, u.CompanyID, u.CompanyName, u.CreatedAt, u.DateOfBirth, u.Email, u.FirstName, u.Gender, u.isDeleted, u.LanguagePreference, u.LastLoginDate, u.LastName, u.PasswordHash, u.PasswordSalt, u.PhoneNumber, u.ProfilePicture, u.RoleID, u.SecurityAnswer, u.SecurityQuestion, u.SocialMedias, u.UpdatedAt, u.UserRole
+        FROM UserDetails AS u
+        WHERE u.Email == @__userEmail_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, UserDetail>, 
+    Domain.Models.EmployeeTrackerContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+ 

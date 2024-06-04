@@ -1,0 +1,19 @@
+2024-05-23 18:18:38,393 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: The navigation 'UserDetail.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-23 18:18:38,424 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-23 18:18:38,429 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,431 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 53ms reading results.
+ 2024-05-23 18:18:38,438 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,440 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-05-23 18:18:38,473  INFO Client.Controllers.LoginController.Login [150] - MESSAGE: Login was Successful for user test3@coditas.com
+ 2024-05-23 18:18:38,479 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-05-23 18:18:38,488 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-23 18:18:38,493 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (4ms).
+ 2024-05-23 18:19:19,351 DEBUG Microsoft.Extensions.Hosting.Internal.Host.Starting [0] - MESSAGE: Hosting starting
+ 2024-05-23 18:19:19,646  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-05-23 18:19:19,657  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-05-23 18:19:19,657  INFO Microsoft.Hosting.Lifetime.Invoke [0] - MESSAGE: Content root path: C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\EmployeeManagementSystem
+ 2024-05-23 18:19:19,664 DEBUG Microsoft.Extensions.Hosting.Internal.Host.Started [0] - MESSAGE: Hosting started
+ 2024-05-23 18:19:20,175 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: An 'IServiceProvider' was created for internal use by Entity Framework.
+ 2024-05-23 18:19:20,340 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-05-23 18:19:20,369 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 

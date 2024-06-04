@@ -5,9 +5,10 @@ using Common.Encryption;
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using DatabaseAccess;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.AspNetCore.Authorization;
 using Common.JwtToken;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 
 
 namespace Client.Controllers
@@ -19,17 +20,20 @@ namespace Client.Controllers
 		private readonly IConfiguration _configuration;
 		private readonly IHttpContextAccessor _httpcontextAccessor;
         private readonly ILogger<LoginController> _logger;
-		public LoginController(DatabaseOperations databaseOperations, IOptions<EncryptionSettings> encryptionsettings, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ILogger<LoginController> logger)
-		{
-			_configuration = configuration;
-			_databaseOperations = databaseOperations;
+        private readonly IDistributedCache _distributedCache;
+        //private readonly RegistrationService _registrationService;
+        public LoginController(DatabaseOperations databaseOperations, IOptions<EncryptionSettings> encryptionsettings, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ILogger<LoginController> logger, IDistributedCache distributedCache)
+        {
+            _configuration = configuration;
+            _databaseOperations = databaseOperations;
             _encryptionsettings = encryptionsettings;
-			_httpcontextAccessor = httpContextAccessor;
+            _httpcontextAccessor = httpContextAccessor;
             _logger = logger;
-		}
+            _distributedCache = distributedCache;
+        }
 
 
-		[HttpGet]
+        [HttpGet]
 		public IActionResult Login()
 		{
           //  if (User.Identity != null && User.Identity.IsAuthenticated == true) return RedirectToAction("UserPage", "UserDashboard");
@@ -40,6 +44,7 @@ namespace Client.Controllers
         [HttpGet]
 		public IActionResult RegisterEmployee()
 		{
+
 			return View();
 		}
         public IActionResult CompanyRegistration()
@@ -73,9 +78,11 @@ namespace Client.Controllers
 				string encryptionkey = _encryptionsettings.Value.EncryptionKey;
 				var AesEncryptor = new AesEncryptor(Options.Create(_encryptionsettings.Value));
 				var passwordhash =  AesEncryptor.Encrypt(user.Password, out string passwordsalt);
+                var companyidstring = _distributedCache.GetString("UserID");
+                int CompanyID = JsonConvert.DeserializeObject<int>(companyidstring);
 				try
 				{
-                    bool success = await _databaseOperations.StoreUser(user, passwordhash, passwordsalt);
+                    bool success = await _databaseOperations.StoreUser(user, passwordhash, passwordsalt, CompanyID);
                     if (success)
                     {
                         TempData["Registered"] = "Succes";
@@ -124,11 +131,11 @@ namespace Client.Controllers
 		}
 		  
 		[HttpPost]
-		public IActionResult Login(LoginView user)
+		public async Task<IActionResult> Login(LoginView user)
 		{ 			
 			if (ModelState.IsValid)
 			{
-				var (loginSuccess, isfirstTimeLogin) = _databaseOperations.CheckUser(user);//tuple return type multiple return values
+				var (loginSuccess, isfirstTimeLogin) =  await _databaseOperations.CheckUser(user);//tuple return type multiple return values
 
 
                 if (loginSuccess)
@@ -139,6 +146,8 @@ namespace Client.Controllers
                         TempData["First Time login"] = "FirstTimeLogin";
                         return RedirectToAction("ForgotPassword");
                     }
+
+
 					var Role = _databaseOperations.GetRoleName(user.Email);
 					var tokenString = JwtGenerate.GenerateJWT(user, _configuration,Role);
 					HttpContext.Response.Cookies.Append("jwtToken", tokenString, new CookieOptions
@@ -149,7 +158,22 @@ namespace Client.Controllers
 						Expires = DateTime.Now.AddMinutes(5)
 					}) ;
                     _logger.LogInformation($"Login was Successful for user {user.Email}");
-					TempData["LoginSuccess"] = "Login Successful";
+
+                    if (string.IsNullOrEmpty(_distributedCache.GetString("UserID")))
+                    {
+                        var UserID = await _databaseOperations.GetUserID(user.Email);
+
+                        if (UserID.HasValue)
+                        {
+                            _distributedCache.SetString("UserID", JsonConvert.SerializeObject(UserID.Value), new DistributedCacheEntryOptions
+                            {
+                                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                            });
+                        }
+                       
+                    }
+
+                    TempData["LoginSuccess"] = "Login Successful";
 					return RedirectToAction("UserPage","UserDashboard");
                 }	
 				else
@@ -163,11 +187,11 @@ namespace Client.Controllers
 			return View(user);
 		}
 		[HttpPost]
-		public IActionResult CompanyLogin(LoginView companyLogin)
+		public async Task<IActionResult> CompanyLogin(LoginView companyLogin)
 		{
 			if (ModelState.IsValid)
 			{
-				string errorMessage = _databaseOperations.CheckCompany(companyLogin);
+				string errorMessage = await _databaseOperations.CheckCompany(companyLogin);
 				if (errorMessage!= null)
 				{
 					TempData["LoginError"] = errorMessage;
@@ -186,6 +210,16 @@ namespace Client.Controllers
                         SameSite = SameSiteMode.Strict,
                         Expires = DateTime.Now.AddMinutes(5)
                     });
+                    if (string.IsNullOrEmpty(_distributedCache.GetString("UserID")))
+                    {
+                        var UserID = await _databaseOperations.GetAdminID(companyLogin.Email);
+
+                        var Adminidstring = JsonConvert.SerializeObject(UserID);
+                        _distributedCache.SetString("UserID", JsonConvert.SerializeObject(UserID), new DistributedCacheEntryOptions
+                        {
+                            AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                        });
+                    }
                     return RedirectToAction("AdminPage", "CompanyAdmin");
                 }
 			}
@@ -196,6 +230,7 @@ namespace Client.Controllers
 		{
 			Response.Cookies.Delete("jwtToken");
             _logger.LogInformation("User has Logged out");
+            _distributedCache.Remove("UserID");
 			return RedirectToAction("Login");
 		}
         [HttpPost]

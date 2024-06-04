@@ -18,6 +18,7 @@ namespace Domain.ViewModels
         public DateTime? employeeCheckInTime { get; set; }
         public DateTime? employeeCheckOutTime { get; set; }
         public DateOnly employeeDOB { get; set; }
+        public string? employeeProfilePicture { get; set; }
 
     }
 }

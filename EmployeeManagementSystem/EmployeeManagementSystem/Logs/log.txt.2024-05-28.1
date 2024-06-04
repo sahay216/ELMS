@@ -1,0 +1,62 @@
+2024-05-28 17:29:18,221 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: The navigation 'UserDetail.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-28 17:29:18,281 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-28 17:29:18,298 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:18,300 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 103ms reading results.
+ 2024-05-28 17:29:18,309 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:18,312 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (3ms).
+ 2024-05-28 17:29:18,405  INFO Client.Controllers.LoginController.Login [150] - MESSAGE: Login was Successful for user dhananj.jadhav@coditas.com
+ 2024-05-28 17:29:18,418 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-05-28 17:29:18,434 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:18,451 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (16ms).
+ 2024-05-28 17:29:32,858 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-05-28 17:29:32,875 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .Join(
+        inner: DbSet<EmployeeDetail>(), 
+        outerKeySelector: user => user.UserId, 
+        innerKeySelector: employeeDetail => employeeDetail.EmployeeId, 
+        resultSelector: (user, employeeDetail) => new { 
+            user = user, 
+            employeeDetail = employeeDetail
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.user.CreatedAt.HasValue && <>h__TransparentIdentifier0.user.CreatedAt.Value.Month == __today_Month_0 && <>h__TransparentIdentifier0.user.CreatedAt.Value.Year == __today_Year_1)
+    .Select(<>h__TransparentIdentifier0 => new UserDetailDashboard{ 
+        EmployeeName = string.Format(
+            format: "{0} {1}", 
+            arg0: <>h__TransparentIdentifier0.user.FirstName, 
+            arg1: <>h__TransparentIdentifier0.user.LastName), 
+        EmployeeId = <>h__TransparentIdentifier0.user.UserId, 
+        EmployeePhone = <>h__TransparentIdentifier0.user.PhoneNumber, 
+        EmployeeImg = <>h__TransparentIdentifier0.user.ProfilePicture, 
+        EmployeeDepartment = <>h__TransparentIdentifier0.employeeDetail.Department 
+    }
+    )'
+ 2024-05-28 17:29:32,971 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<UserDetailDashboard>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> 0
+            1 -> 1
+            2 -> 2
+            3 -> 3
+            4 -> 4
+            5 -> 5
+        SELECT u.FirstName, u.LastName, u.UserID, u.PhoneNumber, u.ProfilePicture, e.Department
+        FROM UserDetails AS u
+        INNER JOIN EmployeeDetails AS e ON u.UserID == e.EmployeeID
+        WHERE (u.CreatedAt IS NOT NULL && (DATEPART(month, u.CreatedAt) == @__today_Month_0)) && (DATEPART(year, u.CreatedAt) == @__today_Year_1)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, UserDetailDashboard>, 
+    Domain.Models.EmployeeTrackerContext, 
+    False, 
+    False, 
+    True
+)'
+ 2024-05-28 17:29:32,985 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-05-28 17:29:32,988 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (2ms).
+ 2024-05-28 17:29:32,989 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:32,991 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:32,992 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-05-28 17:29:32,993 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 

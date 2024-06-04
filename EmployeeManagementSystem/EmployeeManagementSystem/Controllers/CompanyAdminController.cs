@@ -4,38 +4,70 @@ using Microsoft.AspNetCore.Mvc;
 using DatabaseAccess;
 using Domain.Models;
 using System.Security.Claims;
+using Domain.ViewModels;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
+
 
 namespace EmployeeManagementSystem.Controllers
 {
     public class CompanyAdminController : Controller
     {
         private readonly DatabaseOperations _databaseOperations;
-        public CompanyAdminController(DatabaseOperations databaseOperations)
+        private readonly IDistributedCache _distributedCache;
+
+        public CompanyAdminController(DatabaseOperations databaseOperations, IDistributedCache distributedCache)
         {
             _databaseOperations = databaseOperations;
+            _distributedCache = distributedCache;
         }
-        
+
         [Authorize(Roles ="Admin")]
         [HttpGet]
         [NoCache]
-        public IActionResult AdminPage()
+        public async Task<IActionResult> AdminPage()
         {
-            return View();
-        }
-        
-        [HttpGet]
-        public IActionResult NotAdmin()
-        {
-            if (!User.Identity.IsAuthenticated)
+            if (string.IsNullOrEmpty(_distributedCache.GetString("NewHires")))
             {
-                return RedirectToAction("Login", "Login");
+                var newHires = await _databaseOperations.GetNewHires();
+
+                _distributedCache.SetString("NewHires", JsonConvert.SerializeObject(newHires), new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                });
+
+                ViewBag.newHireUsers = newHires;
             }
             else
             {
-                return View();
+                var NHusersFromString = _distributedCache.GetString("NewHires");
+                ViewBag.newHireUsers = JsonConvert.DeserializeObject<List<UserDetailDashboard>>(NHusersFromString);
             }
-                
+
+
+            if (string.IsNullOrEmpty(_distributedCache.GetString("LeaveReport")))
+            {
+                if (_distributedCache.GetString("UserID") != null)
+                {
+                    var companyIDstring = _distributedCache.GetString("UserID");
+                    int companyID = JsonConvert.DeserializeObject<int>(companyIDstring);
+                    var allLeaves = await _databaseOperations.GetLeaveReport(companyID);
+
+                    _distributedCache.SetString("LeaveReport", JsonConvert.SerializeObject(allLeaves), new DistributedCacheEntryOptions
+                    {
+                        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+                    });
+                    ViewBag.leaveReport = allLeaves;
+                }
+            }
+            else
+            {
+                ViewBag.leaveReport = JsonConvert.DeserializeObject<List<LeaveReportView>>(value: _distributedCache.GetString("LeaveReport"));
+            }
+
+            return View();
         }
+        
         [HttpGet]
         public IActionResult EmployeeRegistration()
         {
@@ -65,7 +97,10 @@ namespace EmployeeManagementSystem.Controllers
 
             return View(user);
         }
-
+        public IActionResult ManageLeaves()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult EditEmployee(UserDetail user)
         {
@@ -91,5 +126,18 @@ namespace EmployeeManagementSystem.Controllers
             }
             return View(user);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewLeaves()
+        {
+            if (_distributedCache.GetString("UserID")!= null)
+            {
+                var companyIDstring = _distributedCache.GetString("UserID");
+                int companyID = JsonConvert.DeserializeObject<int>(companyIDstring);
+                return PartialView("_LeaveReport", await _databaseOperations.GetLeaveReport(companyID));
+            }
+            return PartialView("_LeaveReport", new List<LeaveReportView>());
+        }
+        
     }
 }

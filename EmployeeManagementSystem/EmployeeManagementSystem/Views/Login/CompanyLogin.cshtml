@@ -20,6 +20,12 @@
 <body>
     <h1>Login</h1>
     <div class="login-container">
+        @if (TempData["LoginError"] != null)
+        {
+            <div class="login-invalid">
+                <p>@TempData["LoginError"]</p>
+            </div>
+        }
         <form asp-action="CompanyLogin" method="post" class="login-form">
             <div class="form-element">
                 <label for="Email">Email</label>
@@ -41,7 +47,7 @@
         </form>
         <div class="form-footer">
             <div>
-                <p class="form-forgotPassword"><a href="#">Forgot Password?</a></p>
+                <p class="form-forgotPassword"><a href="@Url.Action("ForgotPassword", "Login")">Forgot Password?</a></p>
             </div>
             <div>
                 <a class="form-forgotPassword" href="@Url.Action("CompanyRegistration", "Login")">Register your Company Now!</a>

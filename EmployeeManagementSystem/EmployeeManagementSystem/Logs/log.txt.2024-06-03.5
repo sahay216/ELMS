@@ -1,0 +1,41 @@
+2024-06-03 19:49:44,653 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-06-03 19:49:44,725 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: The index {'CompanyId'} was not created on entity type 'CompanyLeaves' as the properties are already covered by the index {'CompanyId', 'LeaveId'}.
+ 2024-06-03 19:49:45,140 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-06-03 19:49:45,221 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<Company>()
+    .FirstOrDefault(c => c.Email == __company_Email_0)'
+ 2024-06-03 19:49:45,475 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<Company>(
+    asyncEnumerable: new SingleQueryingEnumerable<Company>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Company.CompanyId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Company.Address (string), 1], [Property: Company.CompanyName (string) Required MaxLength(255), 2], [Property: Company.Country (string) MaxLength(100), 3], [Property: Company.DateOfEstablishment (DateOnly?), 4], [Property: Company.DomainName (string) MaxLength(100), 5], [Property: Company.Email (string) MaxLength(255), 6], [Property: Company.Industry (string) MaxLength(100), 7], [Property: Company.Location (string) MaxLength(255), 8], [Property: Company.NumberOfEmployees (int?), 9], [Property: Company.PasswordHash (string), 10], [Property: Company.PasswordSalt (string), 11], [Property: Company.Phone (string) MaxLength(20), 12], [Property: Company.Website (string) MaxLength(255), 13] }
+            SELECT TOP(1) c.CompanyID, c.Address, c.CompanyName, c.Country, c.DateOfEstablishment, c.DomainName, c.Email, c.Industry, c.Location, c.NumberOfEmployees, c.PasswordHash, c.PasswordSalt, c.Phone, c.Website
+            FROM Company AS c
+            WHERE c.Email == @__company_Email_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Company>, 
+        Domain.Models.EmployeeTrackerContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+ 2024-06-03 19:49:45,523 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-06-03 19:49:45,549 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (22ms).
+ 2024-06-03 19:49:45,554 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:49:45,856 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-03 19:49:45,865 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-03 19:49:45,873 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (9ms).
+ 2024-06-03 19:49:45,884 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (24ms).
+ 2024-06-03 19:49:45,894 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__company_Email_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyID], [c].[Address], [c].[CompanyName], [c].[Country], [c].[DateOfEstablishment], [c].[DomainName], [c].[Email], [c].[Industry], [c].[Location], [c].[NumberOfEmployees], [c].[PasswordHash], [c].[PasswordSalt], [c].[Phone], [c].[Website]
+FROM [Company] AS [c]
+WHERE [c].[Email] = @__company_Email_0
+ 2024-06-03 19:49:45,990  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (95ms) [Parameters=[@__company_Email_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyID], [c].[Address], [c].[CompanyName], [c].[Country], [c].[DateOfEstablishment], [c].[DomainName], [c].[Email], [c].[Industry], [c].[Location], [c].[NumberOfEmployees], [c].[PasswordHash], [c].[PasswordSalt], [c].[Phone], [c].[Website]
+FROM [Company] AS [c]
+WHERE [c].[Email] = @__company_Email_0
+ 2024-06-03 19:49:46,159 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'Company' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 

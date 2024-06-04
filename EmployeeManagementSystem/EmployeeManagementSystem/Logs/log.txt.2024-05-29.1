@@ -1,0 +1,42 @@
+2024-05-29 17:14:15,463 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-29 17:14:15,475 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-29 17:14:15,477 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-05-29 17:14:15,479 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-05-29 17:14:15,480 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-05-29 17:14:15,487 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleID], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleID] = @__roleId_0
+ 2024-05-29 17:14:15,491  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (4ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleID], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleID] = @__roleId_0
+ 2024-05-29 17:14:15,493 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: The navigation 'UserDetail.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-29 17:14:15,494 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-29 17:14:15,495 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-29 17:14:15,496 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 3ms reading results.
+ 2024-05-29 17:14:15,497 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-29 17:14:15,498 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (0ms).
+ 2024-05-29 17:14:15,499  INFO Client.Controllers.LoginController.MoveNext [158] - MESSAGE: Login was Successful for user dhananjay.jadhav@coditas.com
+ 2024-05-29 17:14:15,503 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .FirstOrDefault(u => u.Email == __UserEmail_0)'
+ 2024-05-29 17:14:15,511 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<UserDetail>(
+    asyncEnumerable: new SingleQueryingEnumerable<UserDetail>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: UserDetail.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: UserDetail.Address (string), 1], [Property: UserDetail.CompanyId (int?) FK Index, 2], [Property: UserDetail.CompanyName (string), 3], [Property: UserDetail.CreatedAt (DateTime?), 4], [Property: UserDetail.DateOfBirth (DateOnly) Required, 5], [Property: UserDetail.Email (string) Required Index MaxLength(255), 6], [Property: UserDetail.EmployeeId (int?), 7], [Property: UserDetail.FirstName (string) Required MaxLength(255), 8], [Property: UserDetail.Gender (string) MaxLength(10), 9], [Property: UserDetail.IsDeleted (bool) Required, 10], [Property: UserDetail.LanguagePreference (string) MaxLength(50), 11], [Property: UserDetail.LastLoginDate (DateTime?), 12], [Property: UserDetail.LastName (string) Required MaxLength(255), 13], [Property: UserDetail.PasswordHash (string), 14], [Property: UserDetail.PasswordSalt (string), 15], [Property: UserDetail.PhoneNumber (string) MaxLength(15), 16], [Property: UserDetail.ProfilePicture (string), 17], [Property: UserDetail.RoleId (int?) FK Index, 18], [Property: UserDetail.SecurityAnswer (string), 19], [Property: UserDetail.SecurityQuestion (string), 20], [Property: UserDetail.SocialMedias (string) MaxLength(255), 21], [Property: UserDetail.UpdatedAt (DateTime?), 22], [Property: UserDetail.UserRole (string) MaxLength(50), 23] }
+            SELECT TOP(1) u.UserID, u.Address, u.CompanyID, u.CompanyName, u.CreatedAt, u.DateOfBirth, u.Email, u.EmployeeID, u.FirstName, u.Gender, u.isDeleted, u.LanguagePreference, u.LastLoginDate, u.LastName, u.PasswordHash, u.PasswordSalt, u.PhoneNumber, u.ProfilePicture, u.RoleID, u.SecurityAnswer, u.SecurityQuestion, u.SocialMedias, u.UpdatedAt, u.UserRole
+            FROM UserDetails AS u
+            WHERE u.Email == @__UserEmail_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, UserDetail>, 
+        Domain.Models.EmployeeTrackerContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+ 

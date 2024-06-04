@@ -1,0 +1,37 @@
+2024-05-30 14:34:51,337 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: The index {'CompanyId'} was not created on entity type 'CompanyLeaves' as the properties are already covered by the index {'CompanyId', 'LeaveId'}.
+ 2024-05-30 14:34:51,915 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-05-30 14:34:51,952 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: 'EmployeeTrackerContext' generated a temporary value for the property 'TypesOfLeaves.LeaveTypeId'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-30 14:34:52,023 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'TypesOfLeaves' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-30 14:34:52,030 DEBUG Microsoft.EntityFrameworkCore.Update.? [?] - MESSAGE: SaveChanges starting for 'EmployeeTrackerContext'.
+ 2024-05-30 14:34:52,034 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: DetectChanges starting for 'EmployeeTrackerContext'.
+ 2024-05-30 14:34:52,050 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: DetectChanges completed for 'EmployeeTrackerContext'.
+ 2024-05-30 14:34:52,147 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-05-30 14:34:52,198 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (43ms).
+ 2024-05-30 14:34:52,204 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-30 14:34:52,457 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-30 14:34:52,465 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-05-30 14:34:52,480 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (6ms).
+ 2024-05-30 14:34:52,501 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (35ms).
+ 2024-05-30 14:34:52,519 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Boolean), @p2='?' (Size = 125)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Types_of_Leaves] ([DefaultDays], [isGlobal], [LeaveName])
+OUTPUT INSERTED.[LeaveTypeID]
+VALUES (@p0, @p1, @p2);
+ 2024-05-30 14:34:52,603  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (86ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Boolean), @p2='?' (Size = 125)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Types_of_Leaves] ([DefaultDays], [isGlobal], [LeaveName])
+OUTPUT INSERTED.[LeaveTypeID]
+VALUES (@p0, @p1, @p2);
+ 2024-05-30 14:34:52,642 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: The foreign key property 'TypesOfLeaves.LeaveTypeId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.
+ 2024-05-30 14:34:52,677 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-30 14:34:52,708 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 88ms reading results.
+ 2024-05-30 14:34:52,774 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-30 14:34:52,798 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (20ms).
+ 2024-05-30 14:34:52,856 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: An entity of type 'TypesOfLeaves' tracked by 'EmployeeTrackerContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-05-30 14:34:52,864 DEBUG Microsoft.EntityFrameworkCore.Update.? [?] - MESSAGE: SaveChanges completed for 'EmployeeTrackerContext' with 1 entities written to the database.
+ 2024-05-30 14:34:52,899 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-05-30 14:34:52,910 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-30 14:34:52,920 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (9ms).
+ 

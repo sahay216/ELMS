@@ -51,6 +51,8 @@ public partial class UserDetail
 
     public int? CompanyId { get; set; }
 
+    public int? EmployeeId { get; set; }
+
     public virtual ICollection<ApplicationMessage> ApplicationMessageReceivers { get; set; } = new List<ApplicationMessage>();
 
     public virtual ICollection<ApplicationMessage> ApplicationMessageSenders { get; set; } = new List<ApplicationMessage>();
@@ -58,6 +60,10 @@ public partial class UserDetail
     public virtual ICollection<AttendanceRecord> AttendanceRecords { get; set; } = new List<AttendanceRecord>();
 
     public virtual Company? Company { get; set; }
+
+    public virtual EmployeeDetail? EmployeeDetailEmployee { get; set; }
+
+    public virtual ICollection<EmployeeDetail> EmployeeDetailManagers { get; set; } = new List<EmployeeDetail>();
 
     public virtual ICollection<LeaveApplication> LeaveApplicationEmployees { get; set; } = new List<LeaveApplication>();
 

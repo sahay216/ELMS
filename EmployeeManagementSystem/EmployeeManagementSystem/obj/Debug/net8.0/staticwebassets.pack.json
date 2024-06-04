@@ -13,8 +13,16 @@
       "PackagePath": "staticwebassets\\Media\\login-background.jpg"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\Media\\logo_dashboard.png",
+      "PackagePath": "staticwebassets\\Media\\logo_dashboard.png"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\CompanyRegistration.css",
       "PackagePath": "staticwebassets\\css\\CompanyRegistration.css"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\LeavePage.css",
+      "PackagePath": "staticwebassets\\css\\LeavePage.css"
     },
     {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\UserDashboard.css",
@@ -45,12 +53,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\Attendance.js",
+      "PackagePath": "staticwebassets\\js\\Attendance.js"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\RegistrationFormValidation.js",
       "PackagePath": "staticwebassets\\js\\RegistrationFormValidation.js"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\UserDashboard.js",
+      "PackagePath": "staticwebassets\\js\\UserDashboard.js"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\companyRegistrationValidation.js",
       "PackagePath": "staticwebassets\\js\\companyRegistrationValidation.js"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\leavePage.js",
+      "PackagePath": "staticwebassets\\js\\leavePage.js"
     },
     {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\site.js",
@@ -285,6 +305,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Anmol_PatankarScreenshot (2).png",
+      "PackagePath": "staticwebassets\\profilePicture\\Anmol_PatankarScreenshot (2).png"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Dhanaj_JadhavScreenshot (19).png",
       "PackagePath": "staticwebassets\\profilePicture\\Dhanaj_JadhavScreenshot (19).png"
     },
@@ -293,8 +317,28 @@
       "PackagePath": "staticwebassets\\profilePicture\\Dhanajay_JadhavScreenshot (5).png"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Pratik_SharmaScreenshot (6).png",
+      "PackagePath": "staticwebassets\\profilePicture\\Pratik_SharmaScreenshot (6).png"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Sahil_SahayScreenshot (2).png",
       "PackagePath": "staticwebassets\\profilePicture\\Sahil_SahayScreenshot (2).png"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Sahil_Sahaydogimg.jpg",
+      "PackagePath": "staticwebassets\\profilePicture\\Sahil_Sahaydogimg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Test_FourthScreenshot (2).png",
+      "PackagePath": "staticwebassets\\profilePicture\\Test_FourthScreenshot (2).png"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Test_FourthScreenshot (3).png",
+      "PackagePath": "staticwebassets\\profilePicture\\Test_FourthScreenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\Test_FourthScreenshot (7).png",
+      "PackagePath": "staticwebassets\\profilePicture\\Test_FourthScreenshot (7).png"
     },
     {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\profilePicture\\sassd_qwerScreenshot (3).png",

@@ -14,13 +14,13 @@
 
 .box-card {
     width: 340px;
-    height: 220px;
     background-color: #FFFFFF;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
     padding: 12px;
     transition: transform 0.2s;
+    overflow: hidden;
 }
 
     .box-card:active {
@@ -48,16 +48,163 @@
         
     }
 
+
 .card-content {
-    border-radius: 5px;
-    padding: 3px;
-    color: #333333;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 220px;
+    overflow-y:auto;
 }
 
+.user-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    padding: 2px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.profile-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.user-details {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.employee-id {
+    font-weight: bold;
+    color: #627254;
+    word-wrap: break-word;
+    margin-bottom: 2px;
+}
+
+.employee-name {
+    color: #76885B;
+    font-size: 15px;
+}
+
+.employee-role {
+    font-style: italic;
+    color: #AAAAAA;
+    font-size: 13px;
+}
+
+.employee-phone {
+    font-size: 12px;
+    color: #627254;
+}
 .birthday-item {
     background-color: #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 6px;
+    margin-bottom: 8px;
+}
+
+.attendance-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+#timer {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.btn {
+    margin: 5px;
+}
+.drag-handle {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: rgb(255, 255, 255);
+    cursor: grab; /* Change cursor to indicate grabbable element */
+    float: right;
+    margin-top: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+    margin-left: 10px;
+}
+.no-bday{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 12px 0px 12px;
+}
+.no-bday-display{
+    font-size: 14px;
+    opacity:0.4;
+}
+.leave-report {
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+    .leave-report h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+        color: #333;
+    }
+
+.leave-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.leave-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+    .leave-item:last-child {
+        border-bottom: none;
+    }
+
+.leave-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #739072;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.leave-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.leave-type {
+    font-size: 16px;
+    color: #333;
+}
+
+.leave-availability {
+    font-size: 14px;
+    color: #999;
 }

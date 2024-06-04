@@ -1,0 +1,70 @@
+2024-05-24 17:31:26,044 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-05-24 17:31:26,076 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .Where(u => !(u.IsDeleted) && u.FirstName.ToLower().Contains(__lowerquery_0) || u.LastName.ToLower().Contains(__lowerquery_0))
+    .Select(u => new ViewEmployee{ 
+        employeeId = u.UserId, 
+        employeeName = string.Format(
+            format: "{0} {1}", 
+            arg0: u.FirstName, 
+            arg1: u.LastName), 
+        employeeEmail = u.Email, 
+        employeeDOB = u.DateOfBirth, 
+        employeeAddress = u.Address, 
+        employeeGender = u.Gender, 
+        employeeRole = u.UserRole, 
+        employeePhoneNumber = u.PhoneNumber 
+    }
+    )'
+ 2024-05-24 17:31:26,092 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => 
+{
+    queryContext.AddParameter(
+        name: "__lowerquery_0_contains", 
+        value: (object)Invoke(queryContext => SqlServerSqlTranslatingExpressionVisitor.ConstructLikePatternParameter(
+            queryContext: queryContext, 
+            baseParameterName: "__lowerquery_0", 
+            methodType: Contains), queryContext));
+    return new SingleQueryingEnumerable<ViewEmployee>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Client Projections:
+                0 -> 0
+                1 -> 1
+                2 -> 2
+                3 -> 3
+                4 -> 4
+                5 -> 5
+                6 -> 6
+                7 -> 7
+                8 -> 8
+            SELECT u.UserID, u.FirstName, u.LastName, u.Email, u.DateOfBirth, u.Address, u.Gender, u.UserRole, u.PhoneNumber
+            FROM UserDetails AS u
+            WHERE Not(u.isDeleted) && ((LOWER(u.FirstName) LIKE @__lowerquery_0_contains ESCAPE N'\') || (LOWER(u.LastName) LIKE @__lowerquery_0_contains ESCAPE N'\'))), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ViewEmployee>, 
+        Domain.Models.EmployeeTrackerContext, 
+        False, 
+        False, 
+        True
+    );
+}'
+ 2024-05-24 17:31:26,095 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-05-24 17:31:26,095 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (0ms).
+ 2024-05-24 17:31:26,096 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-24 17:31:26,097 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-24 17:31:26,098 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-05-24 17:31:26,099 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-05-24 17:31:26,100 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-05-24 17:31:26,101 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__lowerquery_0_contains='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserID], [u].[FirstName], [u].[LastName], [u].[Email], [u].[DateOfBirth], [u].[Address], [u].[Gender], [u].[UserRole], [u].[PhoneNumber]
+FROM [UserDetails] AS [u]
+WHERE [u].[isDeleted] = CAST(0 AS bit) AND (LOWER([u].[FirstName]) LIKE @__lowerquery_0_contains ESCAPE N'\' OR LOWER([u].[LastName]) LIKE @__lowerquery_0_contains ESCAPE N'\')
+ 2024-05-24 17:31:26,112  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (11ms) [Parameters=[@__lowerquery_0_contains='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserID], [u].[FirstName], [u].[LastName], [u].[Email], [u].[DateOfBirth], [u].[Address], [u].[Gender], [u].[UserRole], [u].[PhoneNumber]
+FROM [UserDetails] AS [u]
+WHERE [u].[isDeleted] = CAST(0 AS bit) AND (LOWER([u].[FirstName]) LIKE @__lowerquery_0_contains ESCAPE N'\' OR LOWER([u].[LastName]) LIKE @__lowerquery_0_contains ESCAPE N'\')
+ 2024-05-24 17:31:26,113 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-24 17:31:26,115 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 1ms reading results.
+ 2024-05-24 17:31:26,116 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 

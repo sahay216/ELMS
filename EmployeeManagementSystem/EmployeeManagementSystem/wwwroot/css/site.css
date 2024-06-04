@@ -41,7 +41,10 @@ a{
 .navbar-admin {
     background-color: #76885B;
 }
-
+.logo_dashboard{
+    height:45px;
+    width:170px;
+}
 /* Card styling */
 .card {
     background-color: #fff;

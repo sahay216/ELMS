@@ -33,7 +33,7 @@ public partial class Company
 
     public string? PasswordHash { get; set; }
 
-    public virtual ICollection<LeaveType> LeaveTypes { get; set; } = new List<LeaveType>();
+    public virtual ICollection<CompanyLeaves> CompanyLeaves { get; set; } = new List<CompanyLeaves>();
 
     public virtual ICollection<UserDetail> UserDetails { get; set; } = new List<UserDetail>();
 }

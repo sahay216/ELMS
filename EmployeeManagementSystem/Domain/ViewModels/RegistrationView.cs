@@ -6,18 +6,23 @@ namespace Domain.ViewModels
 {
     public class RegistrationView
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public int EmployeeID { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Email { get; set; }
+        public string? PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Address { get; set; }
-        public string Gender { get; set; }
+        public string? Address { get; set; }
+        public string? Gender { get; set; }
         public IFormFile ProfilePicture { get; set; }
-        public string Role { get; set; }
-        public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
+        public string? Role { get; set; }
+        public string? Password { get; set; }
+        public string? ConfirmPassword { get; set; }
+        public string? Department { get; set; }
+        public string? ManagerName { get; set; }
+        public int ManagerID { get; set; }
 
+        public List<LeaveBalanceView> AddLeaveViews { get; set; } = new List<LeaveBalanceView>();
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var dateNow = DateOnly.FromDateTime(DateTime.Now);
@@ -36,11 +41,20 @@ namespace Domain.ViewModels
             if ( birthdate.CompareTo(dateNow) > -1) results.Add(new ValidationResult("Date of birth should be a valid date", [nameof(DateOfBirth)]));
             else if (birthdate.AddYears(122).CompareTo(dateNow) < 0) results.Add(new ValidationResult("You are not that old, input a valid date", [nameof(DateOfBirth)]));
             else if (birthdate.AddYears(18).CompareTo(dateNow) > -1) results.Add(new ValidationResult("You must be atleast 18 years old to register", [nameof(DateOfBirth)]));
+            if (Role == null || !Regex.Match(Role, "^[a-zA-Z'-]+$").Success) results.Add(new ValidationResult("Name can only have the English alphabet, hyphens, and apostrophes", [nameof(Role)]));
+            if (Department == null || !Regex.Match(Department, "^[a-zA-Z'\\-\\s]+$").Success) results.Add(new ValidationResult("Name can only have the English alphabet, hyphens, and apostrophes", [nameof(Department)]));
+            if (ManagerName == null || !Regex.Match(ManagerName, "^[a-zA-Z'\\-\\s]+$").Success) results.Add(new ValidationResult("Please Enter a valid Manager Name", [nameof(ManagerName)]));
+
 
             return results;
 
         }
     }
 
-
+    public class LeaveBalanceView
+    {
+        public int LeaveTypeID { get; set; }
+        public string LeaveName { get; set; }
+        public int AllotedDays { get; set; }
+    }
 }

@@ -1,0 +1,19 @@
+﻿@using Domain.ViewModels;
+
+@model List<LeaveReportView>
+@if (Model != null && Model.Any())
+{
+    <ul class="leave-list">
+        @foreach (var leave in Model)
+        {
+            <li class="leave-item">
+                <div class="leave-circle">
+                    <span>@leave.AllotedDays</span>
+                </div>
+                <div class="leave-details">
+                    <span class="leave-type">@leave.LeaveName</span>
+                </div>
+            </li>
+        }
+    </ul>
+}

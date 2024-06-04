@@ -1,0 +1,29 @@
+2024-05-28 17:29:06,218 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-28 17:29:06,401 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-28 17:29:06,640 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'LeaveApplication' to 'UserDetail' has been configured by convention because there are multiple properties on one entity type - {'Employee', 'Manager'} that could be matched with the properties on the other entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-28 17:29:06,649 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-28 17:29:10,983 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-05-28 17:29:12,861 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .FirstOrDefault(u => u.Email == __user_Email_0)'
+ 2024-05-28 17:29:15,142 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<UserDetail>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: UserDetail.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: UserDetail.Address (string), 1], [Property: UserDetail.CompanyId (int?) FK Index, 2], [Property: UserDetail.CompanyName (string), 3], [Property: UserDetail.CreatedAt (DateTime?), 4], [Property: UserDetail.DateOfBirth (DateOnly) Required, 5], [Property: UserDetail.Email (string) Required Index MaxLength(255), 6], [Property: UserDetail.EmployeeId (int?), 7], [Property: UserDetail.FirstName (string) Required MaxLength(255), 8], [Property: UserDetail.Gender (string) MaxLength(10), 9], [Property: UserDetail.IsDeleted (bool) Required, 10], [Property: UserDetail.LanguagePreference (string) MaxLength(50), 11], [Property: UserDetail.LastLoginDate (DateTime?), 12], [Property: UserDetail.LastName (string) Required MaxLength(255), 13], [Property: UserDetail.PasswordHash (string), 14], [Property: UserDetail.PasswordSalt (string), 15], [Property: UserDetail.PhoneNumber (string) MaxLength(15), 16], [Property: UserDetail.ProfilePicture (string), 17], [Property: UserDetail.RoleId (int?) FK Index, 18], [Property: UserDetail.SecurityAnswer (string), 19], [Property: UserDetail.SecurityQuestion (string), 20], [Property: UserDetail.SocialMedias (string) MaxLength(255), 21], [Property: UserDetail.UpdatedAt (DateTime?), 22], [Property: UserDetail.UserRole (string) MaxLength(50), 23] }
+        SELECT TOP(1) u.UserID, u.Address, u.CompanyID, u.CompanyName, u.CreatedAt, u.DateOfBirth, u.Email, u.EmployeeID, u.FirstName, u.Gender, u.isDeleted, u.LanguagePreference, u.LastLoginDate, u.LastName, u.PasswordHash, u.PasswordSalt, u.PhoneNumber, u.ProfilePicture, u.RoleID, u.SecurityAnswer, u.SecurityQuestion, u.SocialMedias, u.UpdatedAt, u.UserRole
+        FROM UserDetails AS u
+        WHERE u.Email == @__user_Email_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, UserDetail>, 
+    Domain.Models.EmployeeTrackerContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+ 2024-05-28 17:29:15,311 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-05-28 17:29:15,404 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (84ms).
+ 2024-05-28 17:29:15,415 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 

@@ -1,42 +1,83 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-
+@using Domain.ViewModels;
 @{
     ViewData["Title"] = "User Dashboard";
 }
+@model List<Domain.ViewModels.ViewEmployee>
 <!DOCTYPE html>
     <head>
         <title>Dashboard</title>
         <link rel="stylesheet" href="@Url.Content("~/css/UserDashboard.css")" /> 
+
     </head>
     <body>
+
         <div class="main-content">
         <div class="box-card" draggable="true">
             <div class="box-header">
                 <h2>Attendance</h2>
+                <div class="drag-handle">&#8942;</div>
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div id="timer">00:00:00</div>
+                <button id="checkInBtn"  class="btn btn-primary">Check In</button>
+                <button id="checkOutBtn" class="btn btn-danger" disabled>Check Out</button>
             </div>
         </div>
+
+
         <div class="box-card" draggable="true">
             <div class="box-header">
                 <h2>Birthday</h2>
+                <div class="drag-handle">&#8942;</div>
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                @{
+                    var birthdayUserDetails = ViewBag.UserBirthdayList as List<UserDetailDashboard>;
+                    if(birthdayUserDetails == null || !birthdayUserDetails.Any())
+                    {
+                        <div class="no-bday">
+                            <p class="no-bday-display">No Birthday Today</p>
+                        </div>
+                    }
+                    else
+                    {
+                        foreach(var i in birthdayUserDetails)
+                        {
+                            <div class="user-card">
+                                @if (!string.IsNullOrEmpty(@i.EmployeeImg))
+                                {
+                                    <img src="@Url.Content($"~/profilePicture/{@i.EmployeeImg}")" alt="@i.EmployeeName" class="profile-image">
+                                }
+                                else
+                                {
+                                    <div class="default-profile-image"></div>
+                                }
+                                <div class="i-details">
+                                    <p class="employee-id">@i.EmployeeId - <span class="employee-name">@i.EmployeeName</span></p>
+                                    <p class="employee-role">@i.EmployeeDepartment     <span class="employee-phone">&#128222; @i.EmployeePhone</span></p> 
+                                </div>
+                            </div>
+                        }
+                    }
+                }
             </div>
         </div>
+
+
         <div class="box-card" draggable="true">
             <div class="box-header">
                <h2>Public Holiday</h2> 
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No Upcoming Holidays </p>
+                </div>
             </div>
         </div>
         <div class="box-card" draggable="true">
@@ -45,78 +86,77 @@
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display"> Data will be displayed soon </p>
+                </div>
             </div>
         </div>
+
         <div class="box-card" draggable="true">
             <div class="box-header">
                 <h2>Files</h2>
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No New Files Uploaded</p>
+                </div>
             </div>
         </div>
-        <div class="box-card" draggable="true">
+        
+        <div class="box-card" draggable="true"> @* New Hires  *@           
             <div class="box-header">
                 <h2>New Hires</h2>
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                @{
+                    var newHires = ViewBag.newHireUsers as List<UserDetailDashboard>;
+                    if (newHires == null || !newHires.Any())
+                    {
+                        <div class="no-bday">
+                            <p class="no-bday-display">No New Hires Currently</p>
+                        </div>
+                    }
+                    else
+                    {
+                        foreach (var i in newHires)
+                        {
+                            <div class="user-card">
+                                @if (!string.IsNullOrEmpty(@i.EmployeeImg))
+                                {
+                                    <img src="@Url.Content($"~/profilePicture/{@i.EmployeeImg}")" alt="@i.EmployeeName" class="profile-image">
+                                }
+                                else
+                                {
+                                    <div class="default-profile-image"></div>
+                                }
+                                <div class="i-details">
+                                    <p class="employee-id">@i.EmployeeId - <span class="employee-name">@i.EmployeeName</span></p>
+                                    <p class="employee-role">@i.EmployeeDepartment     <span class="employee-phone">&#128222; @i.EmployeePhone</span></p>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
             </div>
         </div>
-        <div class="box-card" draggable="true">
+
+        <div class="box-card" draggable="true"> @* Request for approvals  *@
             <div class="box-header">
                 <h2>Request For Approval</h2>
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No New Request</p>
+                </div>
             </div>
         </div>
     </body>
-    <script>
-    const boxes = document.querySelectorAll('.box-card');
-    let draggedBox = null;
 
-    boxes.forEach(box => {
-        box.addEventListener('dragstart', (e) => {
-            draggedBox = box;
-            setTimeout(() => {
-                box.style.display = 'none';
-            }, 0);
-        });
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/UserDashboard.js"></script>
 
-        box.addEventListener('dragend', (e) => {
-            setTimeout(() => {
-                draggedBox.style.display = 'block';
-                draggedBox = null;
-            }, 0);
-        });
 
-        box.addEventListener('dragover', (e) => {
-            e.preventDefault();
-        });
-
-        box.addEventListener('dragenter', (e) => {
-            e.preventDefault();
-            box.classList.add('drag-over');
-        });
-
-        box.addEventListener('dragleave', (e) => {
-            box.classList.remove('drag-over');
-        });
-
-        box.addEventListener('drop', (e) => {
-            box.classList.remove('drag-over');
-            if (draggedBox !== box) {
-                let temp = box.innerHTML;
-                box.innerHTML = draggedBox.innerHTML;
-                draggedBox.innerHTML = temp;
-            }
-        });
-    });
-
-    </script>
 </html>

@@ -15,3 +15,4 @@ C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem
 C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Common\obj\Debug\net8.0\ref\Common.dll
 C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Common\bin\Debug\net8.0\Common.runtimeconfig.json
 C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Common\obj\Debug\net8.0\Common.genruntimeconfig.cache
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Common\obj\Debug\net8.0\Common.sourcelink.json

@@ -1,9 +1,12 @@
 ﻿
 using Domain.Models;
 using Domain.ViewModels;
-using Services.Authentication;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using Services.Authentication;
+
+using System.Transactions;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace DatabaseAccess
 {
@@ -17,52 +20,87 @@ namespace DatabaseAccess
             _trackerContext = trackerContext;
             _loginAuthentication = loginAuthentication;
         }
-
+        //ok
         public int? GetRoleId (string roleName)
         {
             return _trackerContext.Roles.FirstOrDefault(r => r.RoleName == roleName)?.RoleId;
         }
-
+        //ok
         public string? GetRoleName (string userEmail)
         {
             int? roleId = _trackerContext.UserDetails.FirstOrDefault(u => u.Email == userEmail).RoleId;
             return _trackerContext.Roles.FirstOrDefault(r=>r.RoleId== roleId)?.RoleName;
         }
-        public async Task<bool> StoreUser (RegistrationView user, string passwordhash, string passwordsalt)
+        public async Task<bool> StoreUser (RegistrationView user, string passwordhash, string passwordsalt, int companyid)
         {
-            bool userPresent = await _trackerContext.UserDetails.AnyAsync(e => e.Email == user.Email);
-            if (userPresent)
+            using (var transaction = await _trackerContext.Database.BeginTransactionAsync())
             {
-                throw new InvalidOperationException("A user is already present with this Email-id. Try login or register with another Email");
-            }
-            else
-            {
-                int? roleId = GetRoleId(user.Role);
-                string emailDomain = user.Email.Split('@')[1].Split('.')[0];
-                string? profilePicture = await UploadProfilePic(user);
-                UserDetail userinfo = new UserDetail
+                try
                 {
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Email = user.Email,
-                    Address = user.Address,
-                    PhoneNumber = user.PhoneNumber,
-                    DateOfBirth = DateOnly.FromDateTime(user.DateOfBirth),
-                    Gender = user.Gender,
-                    RoleId = roleId.Value,
-                    PasswordHash = passwordhash,
-                    PasswordSalt = passwordsalt,
-                    CreatedAt = DateTime.Now,
-                    CompanyName = emailDomain,
-                    ProfilePicture = profilePicture
+                    bool userPresent = await _trackerContext.UserDetails.AnyAsync(e => e.Email == user.Email);
+                    if (userPresent)
+                    {
+                        throw new InvalidOperationException("A user is already present with this Email-id. Try login or register with another Email");
+                    }
+                    else
+                    {
+                        int? roleId = GetRoleId(user.Role);
+                        string emailDomain = user.Email.Split('@')[1].Split('.')[0];
+                        string? profilePicture = await UploadProfilePic(user);
+                        
+                        UserDetail userinfo = new UserDetail
+                        {
+                            //  EmployeeId = user.EmployeeID,
+                            FirstName = user.FirstName,
+                            LastName = user.LastName,
+                            Email = user.Email,
+                            Address = user.Address,
+                            PhoneNumber = user.PhoneNumber,
+                            DateOfBirth = DateOnly.FromDateTime(user.DateOfBirth),
+                            Gender = user.Gender,
+                            RoleId = roleId.Value,
+                            PasswordHash = passwordhash,
+                            PasswordSalt = passwordsalt,
+                            CreatedAt = DateTime.Now,
+                            CompanyName = emailDomain,
+                            ProfilePicture = profilePicture,
+                            CompanyId = companyid
 
-                    
-                };
-                _trackerContext.UserDetails.Add(userinfo);//added user to context 
-                _trackerContext.SaveChanges();
-                return true;
+                        };
+                        _trackerContext.UserDetails.Add(userinfo);//added user to context 
+                        await _trackerContext.SaveChangesAsync();
+
+
+                        UserDetail? manager = null;
+                        manager = await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.UserId == user.ManagerID);
+
+                        string managerFullname = $"{manager.FirstName} {manager.LastName}".Trim();
+                        string enteredName = user.ManagerName.Trim();
+                        if (manager == null || managerFullname != enteredName)
+                        {
+                            throw new InvalidOperationException("Manager Id and Name do not match.");
+                        }
+                        EmployeeDetail employeeDetail = new EmployeeDetail
+                        {
+                            Department = user.Department,
+                            ManagerName = user.ManagerName,
+                            EmployeeId = userinfo.UserId,
+                            ManagerId = user.ManagerID,
+
+                        };
+                        _trackerContext.EmployeeDetails.Add(employeeDetail);
+                        await _trackerContext.SaveChangesAsync();
+
+                        await transaction.CommitAsync();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await transaction.RollbackAsync();
+                    throw;
+                }
             }
-           
         }
 
         public int CountEmployee(Company company)
@@ -107,9 +145,9 @@ namespace DatabaseAccess
 
         }
 
-        public (bool loginSuccess, bool isfirstTimeLogin) CheckUser (LoginView user)
+        public async Task<(bool loginSuccess, bool isfirstTimeLogin)> CheckUser (LoginView user)
         {
-            UserDetail userDetails = _trackerContext.UserDetails.FirstOrDefault(u => u.Email == user.Email);
+            UserDetail? userDetails = await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.Email == user.Email);
             if (userDetails != null)
             {
                 if ( _loginAuthentication.AuthLogin(user.Password, userDetails.PasswordSalt, userDetails.PasswordHash)){
@@ -118,7 +156,7 @@ namespace DatabaseAccess
                     if (!isfirstTimeLogin)
                     {
                         userDetails.LastLoginDate = DateTime.Now;
-                        _trackerContext.SaveChanges();
+                        await _trackerContext.SaveChangesAsync();
                     }
                     
                     return (true, isfirstTimeLogin);
@@ -159,9 +197,9 @@ namespace DatabaseAccess
             }
             throw new InvalidDataException("Invalid Email entered. Kindly enter a valid Email");
         }
-        public string CheckCompany(LoginView company)
+        public async Task<string> CheckCompany(LoginView company)
         {
-            Company companyDetails = _trackerContext.Company.FirstOrDefault(c => c.Email == company.Email);
+            Company? companyDetails = await _trackerContext.Company.FirstOrDefaultAsync(c => c.Email == company.Email);
             if(companyDetails != null)
             {
                 try
@@ -182,7 +220,7 @@ namespace DatabaseAccess
             }
             else
             {
-                return "Company not found.";
+                return "Company not found. Check Email/Password and try again.";
             }
         }
         public  async Task<string?> UploadProfilePic(RegistrationView user)
@@ -234,7 +272,7 @@ namespace DatabaseAccess
             
         }
 
-            public UserDetail GetUsersById(int id)
+        public UserDetail GetUsersById(int id)
         {
             var user = _trackerContext.UserDetails.FirstOrDefault(u=> u.UserId == id);
             return  user;
@@ -274,9 +312,9 @@ namespace DatabaseAccess
 
         public List<ViewEmployee> SearchEmployee(string query)
         {
-            
+            var lowerquery = query.ToLower();
             return _trackerContext.UserDetails.Where(u => !u.IsDeleted &&
-                                                     (u.FirstName.Contains(query) || u.LastName.Contains(query)))
+                                                     (u.FirstName.ToLower().Contains(lowerquery) || u.LastName.ToLower().Contains(lowerquery)))
                                                      .Select(u => new ViewEmployee
                                                      {
                                                          employeeId = u.UserId,
@@ -311,6 +349,168 @@ namespace DatabaseAccess
                                 
                             }).ToList();
             return profile;
+        }
+
+        public List<UserDetailDashboard> GetBirthdayEmployees()
+        {
+            var today = DateTime.Today;
+            var birthdayEmployee = (from user in _trackerContext.UserDetails
+                                    join employeeDetail in _trackerContext.EmployeeDetails
+                                    on user.UserId equals employeeDetail.EmployeeId
+                                    where user.DateOfBirth.Month == today.Month && user.DateOfBirth.Day == today.Day
+                                    select new UserDetailDashboard
+                                    {
+                                        EmployeeName = $"{user.FirstName} {user.LastName}",
+                                        EmployeeId = user.UserId,
+                                        EmployeePhone = user.PhoneNumber,
+                                        EmployeeImg = user.ProfilePicture,
+                                        EmployeeDepartment = employeeDetail.Department
+                                    }).ToList();
+
+
+            return birthdayEmployee;
+        }
+        public async Task<List<UserDetailDashboard>> GetNewHires()
+        {
+            var twoweeksAgo = DateTime.Now.AddDays(-14);
+            var newhires = (from user in _trackerContext.UserDetails
+                            join employeeDetail in _trackerContext.EmployeeDetails
+                            on user.UserId equals employeeDetail.EmployeeId
+                            where user.CreatedAt.HasValue && user.CreatedAt.Value >= twoweeksAgo && user.IsDeleted == false
+                            select new UserDetailDashboard
+                            {
+                                EmployeeName = $"{user.FirstName} {user.LastName}",
+                                EmployeeId = user.UserId,
+                                EmployeePhone = user.PhoneNumber,
+                                EmployeeImg = user.ProfilePicture,
+                                EmployeeDepartment = employeeDetail.Department
+                            }).ToList();
+            return newhires;
+        }
+
+        public async Task<int?> GetUserID (string UserEmail)
+        {
+            var user =  await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.Email == UserEmail);
+            return user?.UserId;
+        }
+        public async Task<int?> GetAdminID(string UserEmail)
+        {
+            var user = await _trackerContext.Company.FirstOrDefaultAsync(u => u.Email == UserEmail);
+            return user?.CompanyId;
+        }
+
+        public async Task<AttendanceRecord> StoreAttendanceCheckin(int userID)
+        {
+            var attendance = new AttendanceRecord
+            {
+                EmployeeId = userID,
+                CheckInTime = DateTime.Now,
+                TotalHours = 0
+            };
+            _trackerContext.AttendanceRecords.Add(attendance);
+            await _trackerContext.SaveChangesAsync();
+
+            return attendance;
+
+        }
+
+        public async Task<AttendanceRecord> StoreAttendanceCheckout(int userID)
+        {
+            var attendance = await _trackerContext.AttendanceRecords.Where(a=>a.EmployeeId == userID && a.CheckOutTime == null ).FirstOrDefaultAsync();
+
+            if(attendance != null)
+            {
+                attendance.CheckOutTime = DateTime.Now;
+                attendance.TotalHours = CalculateHours(attendance.CheckInTime, attendance.CheckOutTime).TotalHours;
+                _trackerContext.AttendanceRecords.Update(attendance);
+                await _trackerContext.SaveChangesAsync();
+            }
+            return attendance;
+        }
+
+        private TimeSpan CalculateHours(DateTime? checkinTime, DateTime? checkoutTime)
+        {
+            if(checkinTime.HasValue && checkoutTime.HasValue)
+            {
+                return checkoutTime.Value - checkinTime.Value;
+            }
+            return TimeSpan.Zero;
+        }
+
+
+
+        public bool AddLeaves(AddLeaveView leaves, int companyID)
+        {
+            
+            string leaveNamePart = leaves.LeaveName.Split(' ')[0];
+            var LeaveType = _trackerContext.TypesOfLeaves.AsEnumerable().FirstOrDefault(l => l.LeaveName.StartsWith(leaveNamePart, StringComparison.OrdinalIgnoreCase  ));
+
+            if (LeaveType == null)
+            {
+                TypesOfLeave newLeave = new TypesOfLeave
+                {
+                    LeaveName = leaves.LeaveName,
+                    DefaultDays = 1,
+                    IsGlobal = true
+                };
+                _trackerContext.TypesOfLeaves.Add(newLeave);
+                _trackerContext.SaveChanges();
+
+                LeaveType = _trackerContext.TypesOfLeaves.FirstOrDefault(l=> l.LeaveName == newLeave.LeaveName && l.IsGlobal == newLeave.IsGlobal && l.DefaultDays == newLeave.DefaultDays);
+            }
+            CompanyLeaves leave = new CompanyLeaves
+            {
+                CompanyId = companyID,
+                LeaveId = LeaveType.LeaveTypeId,
+                LeaveQuota = leaves.LeaveQuota,
+                LeaveDescription = leaves.LeaveDescription,
+                LeaveName = leaves.LeaveName
+            };
+            _trackerContext.CompanyLeaves.Add(leave);
+            _trackerContext.SaveChanges();
+            return true;
+        }
+
+        public async Task<List<TypesOfLeave>> ViewLeaves(int companyID)
+        {
+            var leaves = await _trackerContext.TypesOfLeaves.ToListAsync();
+            var companyLeaveDetails = await _trackerContext.CompanyLeaves
+                .Where(c => c.CompanyId == companyID).ToListAsync();
+                
+            foreach(var leave in leaves)
+            {
+                var companyleave = companyLeaveDetails.FirstOrDefault(c => c.LeaveId == leave.LeaveTypeId);
+                if (companyleave != null)
+                {
+                    leave.DefaultDays = companyleave.LeaveQuota;
+                    leave.LeaveName = companyleave.LeaveName;
+                }
+                
+            }
+            return leaves;
+        }
+
+        public bool UpdateLeaves(int leaveID, int days)
+        {
+            var companyleave = _trackerContext.CompanyLeaves.FirstOrDefault(cl => cl.LeaveId == leaveID);
+            if(companyleave == null)
+            {
+                return false;
+            }
+            companyleave.LeaveQuota = days;
+            _trackerContext.SaveChanges();
+            return true;
+        }
+
+        public async Task<List<LeaveReportView>> GetLeaveReport(int companyid)
+        {
+            var companyLeave = await _trackerContext.CompanyLeaves.Where(cl => cl.CompanyId == companyid).ToListAsync();
+            var leaves = companyLeave.Select(cl => new LeaveReportView
+            {
+                LeaveName = cl.LeaveName,
+                AllotedDays = cl.LeaveQuota
+            }).ToList();
+            return leaves;
         }
     }
 }

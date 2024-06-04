@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Net;
-using log4net.Config;
-using log4net;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Common.Encryption;
 
 
@@ -20,6 +19,10 @@ builder.Logging.AddLog4Net();
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<EmployeeTrackerContext>(optionsBuilder => optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("DBString")));
+builder.Services.AddStackExchangeRedisCache(options=>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("ReddisString");
+});
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
 builder.Services.Configure<DatabaseOperations>(builder.Configuration.GetSection("DatabaseOperations"));
 builder.Services.AddScoped<DatabaseOperations, DatabaseOperations>();
@@ -72,7 +75,7 @@ app.Use(async (context, next) =>
             context.Response.Redirect(loginUrl);
         }
     }
-});
+    });
 app.Use(async (context, next) =>
 {
 
@@ -89,6 +92,6 @@ app.UseAuthentication(); // Add authentication middleware
 app.UseAuthorization(); // Add authorization middleware
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Login}/{action=Login}/{id?}");
+	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

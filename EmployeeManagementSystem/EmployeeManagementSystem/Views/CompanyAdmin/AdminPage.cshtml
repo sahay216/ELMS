@@ -1,15 +1,18 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using Domain.ViewModels;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 @{
-    ViewData["Title"] = "User Dashboard";
+    ViewData["Title"] = "Admin Dashboard";
     Layout = "../Shared/_LayoutAdmin.cshtml";
 }
+@model List<Domain.ViewModels.UserDetailDashboard>
 
 <!DOCTYPE html>
 <head>
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="@Url.Content("~/css/UserDashboard.css")" />
 </head>
 <body>
@@ -20,7 +23,10 @@
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No Employee Checked In yet</p>
+                </div>
+
             </div>
         </div>
         <div class="box-card" draggable="true">
@@ -29,7 +35,10 @@
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No Employee on Leave Today</p>
+                </div>
+
             </div>
         </div>
         <div class="box-card" draggable="true">
@@ -38,7 +47,10 @@
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No Upcoming Holidays </p>
+                </div>
+
             </div>
         </div>
         <div class="box-card" draggable="true">
@@ -46,8 +58,39 @@
                 <h2>Types Of Leaves</h2>
             </div>
             <span> <hr> </span>
-            <div class="card-content">
-                Content
+            <div id="leaveReportContainer" class="card-content">
+                @{
+                    var allLeaves = ViewBag.leaveReport as List<LeaveReportView>;
+                    if (allLeaves == null || !allLeaves.Any())
+                    {
+                        <div class="no-bday">
+                            <p class="no-bday-display">No Leaves Added Currently</p>
+                        </div>
+
+                    }
+                    else
+                    {
+                        foreach (var i in allLeaves)
+                        {
+                            <div class="user-card">
+                                <ul class="leave-list">
+                                    
+                                    <li class="leave-item">
+                                        <div class="leave-circle">
+                                            <span>@i.AllotedDays</span>
+                                        </div>
+                                        <div class="leave-details">
+                                            <span class="leave-type">@i.LeaveName</span>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            
+                                                           
+                        }
+                    }
+                }
             </div>
         </div>
         <div class="box-card" draggable="true">
@@ -56,7 +99,10 @@
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                <div class="no-bday">
+                    <p class="no-bday-display">No New Files </p>
+                </div>
+
             </div>
         </div>
         <div class="box-card" draggable="true">
@@ -65,7 +111,36 @@
             </div>
             <span> <hr> </span>
             <div class="card-content">
-                Content
+                @{
+                    var newHires = ViewBag.newHireUsers as List<UserDetailDashboard>;
+                    if (newHires == null || !newHires.Any())
+                    {
+                                    <div class="no-bday">
+                                        <p class="no-bday-display">No New Hires Currently</p>
+                                    </div>
+                       
+                    }
+                    else
+                    {
+                        foreach (var i in newHires)
+                        {
+                                <div class="user-card">
+                                    @if (!string.IsNullOrEmpty(@i.EmployeeImg))
+                                    {
+                                        <img src="@Url.Content($"~/profilePicture/{@i.EmployeeImg}")" alt="@i.EmployeeName" class="profile-image">
+                                    }
+                                    else
+                                    {
+                                        <div class="default-profile-image"></div>
+                                    }
+                                    <div class="i-details">
+                                        <p class="employee-id">@i.EmployeeId - <span class="employee-name">@i.EmployeeName</span></p>
+                                        <p class="employee-role">@i.EmployeeDepartment     <span class="employee-phone">&#128222; @i.EmployeePhone</span></p>
+                                    </div>
+                                </div>
+                        }
+                    }
+                }
             </div>
         </div>
         <div class="box-card card-stats" draggable="true">
@@ -79,6 +154,19 @@
         </div>
 </body>
 <script>
+    $(document).ready(function () {
+        $.ajax({
+            url: @Url.Action("ViewLeaves", "CompanyAdmin"),
+            type: 'GET',
+            success: function (data) {
+                $('#leaveReportContainer').html(data);
+
+            },
+            error: function () {
+                $('#leaveReportContainer').html('<p> Error Loading the leave Report data.</p>');
+            }
+        });
+    });
     const boxes = document.querySelectorAll('.box-card');
     let draggedBox = null;
 

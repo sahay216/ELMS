@@ -1,0 +1,24 @@
+2024-05-28 17:29:32,995 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-05-28 17:29:33,027 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__today_Month_0='?' (DbType = Int32), @__today_Year_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[FirstName], [u].[LastName], [u].[UserID], [u].[PhoneNumber], [u].[ProfilePicture], [e].[Department]
+FROM [UserDetails] AS [u]
+INNER JOIN [EmployeeDetails] AS [e] ON [u].[UserID] = [e].[EmployeeID]
+WHERE [u].[CreatedAt] IS NOT NULL AND DATEPART(month, [u].[CreatedAt]) = @__today_Month_0 AND DATEPART(year, [u].[CreatedAt]) = @__today_Year_1
+ 2024-05-28 17:29:33,047  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (20ms) [Parameters=[@__today_Month_0='?' (DbType = Int32), @__today_Year_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[FirstName], [u].[LastName], [u].[UserID], [u].[PhoneNumber], [u].[ProfilePicture], [e].[Department]
+FROM [UserDetails] AS [u]
+INNER JOIN [EmployeeDetails] AS [e] ON [u].[UserID] = [e].[EmployeeID]
+WHERE [u].[CreatedAt] IS NOT NULL AND DATEPART(month, [u].[CreatedAt]) = @__today_Month_0 AND DATEPART(year, [u].[CreatedAt]) = @__today_Year_1
+ 2024-05-28 17:29:33,050 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:33,053 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 2ms reading results.
+ 2024-05-28 17:29:33,056 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:33,058 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (2ms).
+ 2024-05-28 17:29:33,144 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-05-28 17:29:33,147 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-05-28 17:29:33,149 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-05-28 17:29:33,152 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-28 17:29:33,155 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (2ms).
+ 2024-05-28 17:31:07,950  INFO Client.Controllers.LoginController.Logout [197] - MESSAGE: User has Logged out
+ 2024-05-28 17:31:07,979 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-05-28 17:31:07,982 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 

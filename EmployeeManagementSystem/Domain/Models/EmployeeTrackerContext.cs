@@ -21,6 +21,8 @@ public partial class EmployeeTrackerContext : DbContext
 
     public virtual DbSet<Company> Company { get; set; }
 
+    public virtual DbSet<CompanyLeaves> CompanyLeaves { get; set; }
+
     public virtual DbSet<EmailNotification> EmailNotifications { get; set; }
 
     public virtual DbSet<EmployeeDetail> EmployeeDetails { get; set; }
@@ -29,11 +31,11 @@ public partial class EmployeeTrackerContext : DbContext
 
     public virtual DbSet<LeaveBalance> LeaveBalances { get; set; }
 
-    public virtual DbSet<LeaveType> LeaveTypes { get; set; }
-
     public virtual DbSet<PublicHoliday> PublicHolidays { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
+
+    public virtual DbSet<TypesOfLeave> TypesOfLeaves { get; set; }
 
     public virtual DbSet<UserDetail> UserDetails { get; set; }
 
@@ -99,6 +101,23 @@ public partial class EmployeeTrackerContext : DbContext
             entity.Property(e => e.Website).HasMaxLength(255);
         });
 
+        modelBuilder.Entity<CompanyLeaves>(entity =>
+        {
+            entity.HasKey(e => e.CompanyLeavesId).HasName("PK__CompanyL__6F2D6FADD9FD5E52");
+
+            entity.HasIndex(e => new { e.CompanyId, e.LeaveId }, "UQ__CompanyL__AA01C7DA88B7F3DC").IsUnique();
+
+            entity.Property(e => e.CompanyLeavesId).HasColumnName("CompanyLeavesID");
+            entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
+            entity.Property(e => e.LeaveDescription).HasMaxLength(255);
+            entity.Property(e => e.LeaveId).HasColumnName("LeaveID");
+            entity.Property(e => e.LeaveName).HasMaxLength(255);
+
+            entity.HasOne(d => d.Company).WithMany(p => p.CompanyLeaves)
+                .HasForeignKey(d => d.CompanyId)
+                .HasConstraintName("FK__CompanyLe__Compa__40F9A68C");
+        });
+
         modelBuilder.Entity<EmailNotification>(entity =>
         {
             entity.HasKey(e => e.NotificationId).HasName("PK__EmailNot__20CF2E327196D68A");
@@ -120,20 +139,22 @@ public partial class EmployeeTrackerContext : DbContext
 
         modelBuilder.Entity<EmployeeDetail>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.EmployeeId).HasName("PK__Employee__7AD04FF1F04E85A6");
 
-            entity.Property(e => e.Department).HasMaxLength(255);
-            entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            entity.Property(e => e.EmployeeId)
+                .ValueGeneratedNever()
+                .HasColumnName("EmployeeID");
             entity.Property(e => e.ManagerId).HasColumnName("ManagerID");
 
-            entity.HasOne(d => d.Employee).WithMany()
-                .HasForeignKey(d => d.EmployeeId)
+            entity.HasOne(d => d.Employee).WithOne(p => p.EmployeeDetailEmployee)
+                .HasForeignKey<EmployeeDetail>(d => d.EmployeeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__EmployeeD__Emplo__0D7A0286");
+                .HasConstraintName("FK_EmployeeDetails_UserDetails");
 
-            entity.HasOne(d => d.Manager).WithMany()
+            entity.HasOne(d => d.Manager).WithMany(p => p.EmployeeDetailManagers)
                 .HasForeignKey(d => d.ManagerId)
-                .HasConstraintName("FK__EmployeeD__Manag__0E6E26BF");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_EmployeeDetails_Manager");
         });
 
         modelBuilder.Entity<LeaveApplication>(entity =>
@@ -167,29 +188,15 @@ public partial class EmployeeTrackerContext : DbContext
                 .ToTable("Leave_Balance");
 
             entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            entity.Property(e => e.LeaveTypeId).HasColumnName("LeaveTypeID");
 
             entity.HasOne(d => d.Employee).WithMany()
                 .HasForeignKey(d => d.EmployeeId)
                 .HasConstraintName("FK__Leave_Bal__Emplo__0A9D95DB");
-        });
 
-        modelBuilder.Entity<LeaveType>(entity =>
-        {
-            entity.HasKey(e => e.LeaveTypeId).HasName("PK__Leave_Ty__43BE8FF4D1AACC75");
-
-            entity.ToTable("Leave_Type");
-
-            entity.Property(e => e.LeaveTypeId).HasColumnName("LeaveTypeID");
-            entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
-            entity.Property(e => e.CompensatoryOff).HasColumnName("CompensatoryOFF");
-            entity.Property(e => e.IsGlobal)
-                .HasDefaultValue(false)
-                .HasColumnName("isGlobal");
-            entity.Property(e => e.LeaveTypeName).HasMaxLength(120);
-
-            entity.HasOne(d => d.Company).WithMany(p => p.LeaveTypes)
-                .HasForeignKey(d => d.CompanyId)
-                .HasConstraintName("FK__Leave_Typ__Compa__29221CFB");
+            entity.HasOne(d => d.LeaveType).WithMany()
+                .HasForeignKey(d => d.LeaveTypeId)
+                .HasConstraintName("FK__Leave_Bal__Leave__46B27FE2");
         });
 
         modelBuilder.Entity<PublicHoliday>(entity =>
@@ -215,6 +222,19 @@ public partial class EmployeeTrackerContext : DbContext
             entity.Property(e => e.RoleName).HasMaxLength(50);
         });
 
+        modelBuilder.Entity<TypesOfLeave>(entity =>
+        {
+            entity.HasKey(e => e.LeaveTypeId).HasName("PK__Types_of__43BE8FF4DC767EC3");
+
+            entity.ToTable("Types_of_Leaves");
+
+            entity.Property(e => e.LeaveTypeId).HasColumnName("LeaveTypeID");
+            entity.Property(e => e.IsGlobal)
+                .HasDefaultValue(true)
+                .HasColumnName("isGlobal");
+            entity.Property(e => e.LeaveName).HasMaxLength(125);
+        });
+
         modelBuilder.Entity<UserDetail>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__UserDeta__1788CCAC7E4C6BB8");
@@ -224,6 +244,7 @@ public partial class EmployeeTrackerContext : DbContext
             entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
             entity.Property(e => e.Email).HasMaxLength(255);
+            entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
             entity.Property(e => e.FirstName).HasMaxLength(255);
             entity.Property(e => e.Gender).HasMaxLength(10);
             entity.Property(e => e.IsDeleted).HasColumnName("isDeleted");

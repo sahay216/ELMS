@@ -6,12 +6,13 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+a{
+    color:black;
+}
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
 }
 
 .form-container {
@@ -55,6 +56,18 @@
             outline: 0;
             box-shadow: 0 0 5px rgba(118, 136, 91, 0.5);
         }
+.form-section{
+    margin-bottom: 20px;
+}
+.form-section-header {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #495057;
+}
 
 .form-checkbox {
     display: flex;

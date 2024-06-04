@@ -1,0 +1,145 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("~/Media/login-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: black;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #627254;
+}
+
+/* Message Styles */
+.message {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+}
+
+/* Form Styles */
+.form-container {
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+.form-section-header {
+    padding: 2px;
+    padding-bottom: 10px;
+    font-size:12px;
+    color: #495057;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #495057;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        color: #495057;
+    }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #76885B;
+            outline: 0;
+            box-shadow: 0 0 5px rgba(118, 136, 91, 0.5);
+        }
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #76885B;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    button[type="submit"]:hover {
+        background-color: #627254;
+    }
+
+/* Table Styles */
+.table-container {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    table th,
+    table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+button.increment,
+button.decrement {
+    background-color: #A1DD70;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    button.increment:hover,
+    button.decrement:hover {
+        background-color: #799351;
+    }
+
+.saveBtn {
+    padding: 3px 25px;
+    background-color: #799351;
+    border-radius: 5px;
+    color: floralwhite;
+}

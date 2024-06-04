@@ -1,0 +1,28 @@
+2024-05-23 18:18:35,703 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'ApplicationMessage' to 'UserDetail' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ApplicationMessageReceivers', 'ApplicationMessageSenders'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-23 18:18:35,722 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'ApplicationMessage' has been configured by convention because there are multiple properties on one entity type - {'ApplicationMessageReceivers', 'ApplicationMessageSenders'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-23 18:18:35,730 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-23 18:18:35,745 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-23 18:18:35,795 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'LeaveApplication' to 'UserDetail' has been configured by convention because there are multiple properties on one entity type - {'Employee', 'Manager'} that could be matched with the properties on the other entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-23 18:18:35,798 DEBUG Microsoft.EntityFrameworkCore.Model.? [?] - MESSAGE: No relationship from 'UserDetail' to 'LeaveApplication' has been configured by convention because there are multiple properties on one entity type - {'LeaveApplicationEmployees', 'LeaveApplicationManagers'} that could be matched with the properties on the other entity type - {'Employee', 'Manager'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'.
+ 2024-05-23 18:18:36,520 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-05-23 18:18:36,602 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .FirstOrDefault(u => u.Email == __user_Email_0)'
+ 2024-05-23 18:18:37,132 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<UserDetail>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: UserDetail.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: UserDetail.Address (string), 1], [Property: UserDetail.CompanyId (int?) FK Index, 2], [Property: UserDetail.CompanyName (string), 3], [Property: UserDetail.CreatedAt (DateTime?), 4], [Property: UserDetail.DateOfBirth (DateOnly) Required, 5], [Property: UserDetail.Email (string) Required Index MaxLength(255), 6], [Property: UserDetail.FirstName (string) Required MaxLength(255), 7], [Property: UserDetail.Gender (string) MaxLength(10), 8], [Property: UserDetail.IsDeleted (bool) Required, 9], [Property: UserDetail.LanguagePreference (string) MaxLength(50), 10], [Property: UserDetail.LastLoginDate (DateTime?), 11], [Property: UserDetail.LastName (string) Required MaxLength(255), 12], [Property: UserDetail.PasswordHash (string), 13], [Property: UserDetail.PasswordSalt (string), 14], [Property: UserDetail.PhoneNumber (string) MaxLength(15), 15], [Property: UserDetail.ProfilePicture (string), 16], [Property: UserDetail.RoleId (int?) FK Index, 17], [Property: UserDetail.SecurityAnswer (string), 18], [Property: UserDetail.SecurityQuestion (string), 19], [Property: UserDetail.SocialMedias (string) MaxLength(255), 20], [Property: UserDetail.UpdatedAt (DateTime?), 21], [Property: UserDetail.UserRole (string) MaxLength(50), 22] }
+        SELECT TOP(1) u.UserID, u.Address, u.CompanyID, u.CompanyName, u.CreatedAt, u.DateOfBirth, u.Email, u.FirstName, u.Gender, u.isDeleted, u.LanguagePreference, u.LastLoginDate, u.LastName, u.PasswordHash, u.PasswordSalt, u.PhoneNumber, u.ProfilePicture, u.RoleID, u.SecurityAnswer, u.SecurityQuestion, u.SocialMedias, u.UpdatedAt, u.UserRole
+        FROM UserDetails AS u
+        WHERE u.Email == @__user_Email_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, UserDetail>, 
+    Domain.Models.EmployeeTrackerContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+ 

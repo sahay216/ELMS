@@ -17,3 +17,4 @@ C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem
 C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Services\bin\Debug\net8.0\Common.dll
 C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Services\bin\Debug\net8.0\Common.pdb
+C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\Services\obj\Debug\net8.0\Services.sourcelink.json

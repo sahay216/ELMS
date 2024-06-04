@@ -1,0 +1,70 @@
+2024-05-31 16:23:28,089  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (9ms) [Parameters=[@__today_Month_0='?' (DbType = Int32), @__today_Year_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [u].[FirstName], [u].[LastName], [u].[UserID], [u].[PhoneNumber], [u].[ProfilePicture], [e].[Department]
+FROM [UserDetails] AS [u]
+INNER JOIN [EmployeeDetails] AS [e] ON [u].[UserID] = [e].[EmployeeID]
+WHERE [u].[CreatedAt] IS NOT NULL AND DATEPART(month, [u].[CreatedAt]) = @__today_Month_0 AND DATEPART(year, [u].[CreatedAt]) = @__today_Year_1 AND [u].[isDeleted] = CAST(0 AS bit)
+ 2024-05-31 16:23:28,104 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-31 16:23:28,115 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 10ms reading results.
+ 2024-05-31 16:23:28,116 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-31 16:23:28,117 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-05-31 16:23:28,120 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-05-31 16:23:28,123 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-05-31 16:23:28,124 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-05-31 16:23:28,126 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-31 16:23:28,127 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (1ms).
+ 2024-05-31 16:23:33,660 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-05-31 16:23:33,663 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<UserDetail>()
+    .Where(u => !(u.IsDeleted) && u.FirstName.ToLower().Contains(__lowerquery_0) || u.LastName.ToLower().Contains(__lowerquery_0))
+    .Select(u => new ViewEmployee{ 
+        employeeId = u.UserId, 
+        employeeName = string.Format(
+            format: "{0} {1}", 
+            arg0: u.FirstName, 
+            arg1: u.LastName), 
+        employeeEmail = u.Email, 
+        employeeDOB = u.DateOfBirth, 
+        employeeAddress = u.Address, 
+        employeeGender = u.Gender, 
+        employeeRole = u.UserRole, 
+        employeePhoneNumber = u.PhoneNumber 
+    }
+    )'
+ 2024-05-31 16:23:33,687 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => 
+{
+    queryContext.AddParameter(
+        name: "__lowerquery_0_contains", 
+        value: (object)Invoke(queryContext => SqlServerSqlTranslatingExpressionVisitor.ConstructLikePatternParameter(
+            queryContext: queryContext, 
+            baseParameterName: "__lowerquery_0", 
+            methodType: Contains), queryContext));
+    return new SingleQueryingEnumerable<ViewEmployee>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Client Projections:
+                0 -> 0
+                1 -> 1
+                2 -> 2
+                3 -> 3
+                4 -> 4
+                5 -> 5
+                6 -> 6
+                7 -> 7
+                8 -> 8
+            SELECT u.UserID, u.FirstName, u.LastName, u.Email, u.DateOfBirth, u.Address, u.Gender, u.UserRole, u.PhoneNumber
+            FROM UserDetails AS u
+            WHERE Not(u.isDeleted) && ((LOWER(u.FirstName) LIKE @__lowerquery_0_contains ESCAPE N'\') || (LOWER(u.LastName) LIKE @__lowerquery_0_contains ESCAPE N'\'))), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ViewEmployee>, 
+        Domain.Models.EmployeeTrackerContext, 
+        False, 
+        False, 
+        True
+    );
+}'
+ 2024-05-31 16:23:33,698 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-05-31 16:23:33,700 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (2ms).
+ 2024-05-31 16:23:33,702 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-05-31 16:23:33,704 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 

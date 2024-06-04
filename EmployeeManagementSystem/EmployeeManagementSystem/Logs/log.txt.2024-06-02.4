@@ -1,0 +1,44 @@
+2024-06-02 23:47:06,956 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-02 23:47:06,970 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 35ms reading results.
+ 2024-06-02 23:47:06,971 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-02 23:47:06,972 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-06-02 23:47:06,985 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: An entity of type 'TypesOfLeave' tracked by 'EmployeeTrackerContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-02 23:47:06,988 DEBUG Microsoft.EntityFrameworkCore.Update.? [?] - MESSAGE: SaveChanges completed for 'EmployeeTrackerContext' with 1 entities written to the database.
+ 2024-06-02 23:47:06,991 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<TypesOfLeave>()
+    .FirstOrDefault(l => l.LeaveName == __newLeave_LeaveName_0 && l.IsGlobal == __newLeave_IsGlobal_1 && l.DefaultDays == __newLeave_DefaultDays_2)'
+ 2024-06-02 23:47:06,995 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<TypesOfLeave>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: TypesOfLeave.LeaveTypeId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TypesOfLeave.DefaultDays (int) Required, 1], [Property: TypesOfLeave.IsGlobal (bool) Required Sentinel:True ValueGenerated.OnAdd, 2], [Property: TypesOfLeave.LeaveName (string) Required MaxLength(125), 3] }
+        SELECT TOP(1) t.LeaveTypeID, t.DefaultDays, t.isGlobal, t.LeaveName
+        FROM Types_of_Leaves AS t
+        WHERE ((t.LeaveName == @__newLeave_LeaveName_0) && (t.isGlobal == @__newLeave_IsGlobal_1)) && (t.DefaultDays == @__newLeave_DefaultDays_2)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TypesOfLeave>, 
+    Domain.Models.EmployeeTrackerContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+ 2024-06-02 23:47:06,997 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-02 23:47:06,998 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-02 23:47:06,999 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-02 23:47:06,999 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (0ms).
+ 2024-06-02 23:47:07,000 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (1ms).
+ 2024-06-02 23:47:07,002 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__newLeave_LeaveName_0='?' (Size = 125), @__newLeave_IsGlobal_1='?' (DbType = Boolean), @__newLeave_DefaultDays_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[LeaveTypeID], [t].[DefaultDays], [t].[isGlobal], [t].[LeaveName]
+FROM [Types_of_Leaves] AS [t]
+WHERE [t].[LeaveName] = @__newLeave_LeaveName_0 AND [t].[isGlobal] = @__newLeave_IsGlobal_1 AND [t].[DefaultDays] = @__newLeave_DefaultDays_2
+ 2024-06-02 23:47:07,006  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (4ms) [Parameters=[@__newLeave_LeaveName_0='?' (Size = 125), @__newLeave_IsGlobal_1='?' (DbType = Boolean), @__newLeave_DefaultDays_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[LeaveTypeID], [t].[DefaultDays], [t].[isGlobal], [t].[LeaveName]
+FROM [Types_of_Leaves] AS [t]
+WHERE [t].[LeaveName] = @__newLeave_LeaveName_0 AND [t].[isGlobal] = @__newLeave_IsGlobal_1 AND [t].[DefaultDays] = @__newLeave_DefaultDays_2
+ 2024-06-02 23:47:07,008 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-02 23:47:07,009 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 1ms reading results.
+ 2024-06-02 23:47:07,010 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-02 23:47:07,010 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (0ms).
+ 

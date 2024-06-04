@@ -2,6 +2,8 @@ using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 
 namespace Domain.Controllers
@@ -14,10 +16,21 @@ namespace Domain.Controllers
 		{
 			_logger = logger;
 		}
-
+        [Authorize]
 		public IActionResult Index()
 		{
-			return View();
+            var UserClaims = User.Identity as ClaimsIdentity;
+            var roles = UserClaims?.FindAll(ClaimTypes.Role).Select(r => r.Value).ToList();
+
+            if (roles.Contains("Admin"))
+            {
+                return RedirectToAction("AdminPage", "CompanyAdmin");
+            }
+            else if(roles.Contains("Employee")|| roles.Contains("Manager"))
+            {
+                return RedirectToAction("UserPage", "UserDashboard");
+            }
+			return RedirectToAction("Login", "Login");
 		}
 
 		public IActionResult Privacy()

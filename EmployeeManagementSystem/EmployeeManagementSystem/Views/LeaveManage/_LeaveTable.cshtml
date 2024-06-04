@@ -1,0 +1,32 @@
+﻿@model List<TypesOfLeave>
+
+@if (Model != null && Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Leave Name</th>
+                <th>Alloted Days</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var leave in Model)
+            {
+                <tr>
+                    <td>@leave.LeaveName</td>
+                    <td><span id="@($"days-{leave.LeaveTypeId}")">@leave.DefaultDays</span></td>
+                    <td>
+                        <button class="increment" data-id="@leave.LeaveTypeId">+</button>
+                        <button class="decrement" data-id="@leave.LeaveTypeId">-</button>
+                        <button id="@($"saveBtn-{leave.LeaveTypeId}")" class="saveBtn" type="button" style="display:none;">Save</button> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No leaves found.</p>
+}
