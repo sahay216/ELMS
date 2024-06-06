@@ -1,35 +1,55 @@
-2024-06-04 11:48:47,015 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
- 2024-06-04 11:48:47,032 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (19ms).
- 2024-06-04 11:48:47,034 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__lowerquery_0_contains='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
-SELECT [u].[UserID], [u].[FirstName], [u].[LastName], [u].[Email], [u].[DateOfBirth], [u].[Address], [u].[Gender], [u].[UserRole], [u].[PhoneNumber]
-FROM [UserDetails] AS [u]
-WHERE [u].[isDeleted] = CAST(0 AS bit) AND (LOWER([u].[FirstName]) LIKE @__lowerquery_0_contains ESCAPE N'\' OR LOWER([u].[LastName]) LIKE @__lowerquery_0_contains ESCAPE N'\')
- 2024-06-04 11:48:47,044  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (9ms) [Parameters=[@__lowerquery_0_contains='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
-SELECT [u].[UserID], [u].[FirstName], [u].[LastName], [u].[Email], [u].[DateOfBirth], [u].[Address], [u].[Gender], [u].[UserRole], [u].[PhoneNumber]
-FROM [UserDetails] AS [u]
-WHERE [u].[isDeleted] = CAST(0 AS bit) AND (LOWER([u].[FirstName]) LIKE @__lowerquery_0_contains ESCAPE N'\' OR LOWER([u].[LastName]) LIKE @__lowerquery_0_contains ESCAPE N'\')
- 2024-06-04 11:48:47,045 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
- 2024-06-04 11:48:47,046 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 0ms reading results.
- 2024-06-04 11:48:47,047 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
- 2024-06-04 11:48:47,048 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
- 2024-06-04 11:48:47,051 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
- 2024-06-04 11:48:47,051 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
- 2024-06-04 11:48:47,053 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (1ms).
- 2024-06-04 11:48:47,848 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
- 2024-06-04 11:48:47,850 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
- 2024-06-04 11:48:47,856 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (5ms).
- 2024-06-04 11:48:47,858 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
- 2024-06-04 11:48:47,860 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
- 2024-06-04 11:48:47,862 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
- 2024-06-04 11:48:47,863 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
- 2024-06-04 11:48:47,864 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
- 2024-06-04 11:48:47,866 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__lowerquery_0_contains='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
-SELECT [u].[UserID], [u].[FirstName], [u].[LastName], [u].[Email], [u].[DateOfBirth], [u].[Address], [u].[Gender], [u].[UserRole], [u].[PhoneNumber]
-FROM [UserDetails] AS [u]
-WHERE [u].[isDeleted] = CAST(0 AS bit) AND (LOWER([u].[FirstName]) LIKE @__lowerquery_0_contains ESCAPE N'\' OR LOWER([u].[LastName]) LIKE @__lowerquery_0_contains ESCAPE N'\')
- 2024-06-04 11:48:47,867  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__lowerquery_0_contains='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
-SELECT [u].[UserID], [u].[FirstName], [u].[LastName], [u].[Email], [u].[DateOfBirth], [u].[Address], [u].[Gender], [u].[UserRole], [u].[PhoneNumber]
-FROM [UserDetails] AS [u]
-WHERE [u].[isDeleted] = CAST(0 AS bit) AND (LOWER([u].[FirstName]) LIKE @__lowerquery_0_contains ESCAPE N'\' OR LOWER([u].[LastName]) LIKE @__lowerquery_0_contains ESCAPE N'\')
- 2024-06-04 11:48:47,871 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+2024-06-06 15:44:53,102 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-06 15:44:53,125 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-06-06 15:44:53,135 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 15:44:53,140 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (5ms).
+ 2024-06-06 15:44:58,097 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-06 15:44:58,108 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-06 15:45:00,728 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-06-06 15:45:00,785 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'AttendanceRecord' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-06 15:45:00,786 DEBUG Microsoft.EntityFrameworkCore.Update.? [?] - MESSAGE: SaveChanges starting for 'EmployeeTrackerContext'.
+ 2024-06-06 15:45:00,788 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: DetectChanges starting for 'EmployeeTrackerContext'.
+ 2024-06-06 15:45:00,805 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: DetectChanges completed for 'EmployeeTrackerContext'.
+ 2024-06-06 15:45:00,836 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-06-06 15:45:00,838 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (1ms).
+ 2024-06-06 15:45:00,839 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 15:45:00,840 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 15:45:00,841 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-06 15:45:00,842 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-06-06 15:45:00,844 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-06-06 15:45:00,845 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Date), @p4='?' (DbType = Int32), @p5='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Attendance_Records] ([RecordID], [CheckInTime], [CheckOutTime], [Date], [EmployeeID], [Total_Hours])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+ 2024-06-06 15:45:00,891 ERROR Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Failed executing DbCommand (45ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Date), @p4='?' (DbType = Int32), @p5='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Attendance_Records] ([RecordID], [CheckInTime], [CheckOutTime], [Date], [EmployeeID], [Total_Hours])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+ 2024-06-06 15:45:00,899 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-06-06 15:45:00,903 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 15:45:00,905 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (2ms).
+ 2024-06-06 15:45:06,926 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-06-06 15:45:06,929 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Compiling query expression: 
+'DbSet<AttendanceRecord>()
+    .Where(a => a.EmployeeId == __userID_0 && a.CheckOutTime == null)
+    .FirstOrDefault()'
+ 2024-06-06 15:45:06,938 DEBUG Microsoft.EntityFrameworkCore.Query.? [?] - MESSAGE: Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<AttendanceRecord>(
+    asyncEnumerable: new SingleQueryingEnumerable<AttendanceRecord>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: AttendanceRecord.RecordId (int) Required PK AfterSave:Throw, 0], [Property: AttendanceRecord.CheckInTime (DateTime?), 1], [Property: AttendanceRecord.CheckOutTime (DateTime?), 2], [Property: AttendanceRecord.Date (DateOnly?), 3], [Property: AttendanceRecord.EmployeeId (int?) FK Index, 4], [Property: AttendanceRecord.TotalHours (double?), 5] }
+            SELECT TOP(1) a.RecordID, a.CheckInTime, a.CheckOutTime, a.Date, a.EmployeeID, a.Total_Hours
+            FROM Attendance_Records AS a
+            WHERE (a.EmployeeID == @__userID_0) && (a.CheckOutTime == NULL)), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, AttendanceRecord>, 
+        Domain.Models.EmployeeTrackerContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
  

@@ -31,6 +31,17 @@ namespace DatabaseAccess
             int? roleId = _trackerContext.UserDetails.FirstOrDefault(u => u.Email == userEmail).RoleId;
             return _trackerContext.Roles.FirstOrDefault(r=>r.RoleId== roleId)?.RoleName;
         }
+        public async Task<int?> GetUserID(string UserEmail)
+        {
+            var user = await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.Email == UserEmail);
+            return user?.UserId;
+        }
+        public async Task<int?> GetAdminID(string UserEmail)
+        {
+            var user = await _trackerContext.Company.FirstOrDefaultAsync(u => u.Email == UserEmail);
+            return user?.CompanyId;
+        }
+
         public async Task<bool> StoreUser (RegistrationView user, string passwordhash, string passwordsalt, int companyid)
         {
             using (var transaction = await _trackerContext.Database.BeginTransactionAsync())
@@ -90,7 +101,22 @@ namespace DatabaseAccess
                         };
                         _trackerContext.EmployeeDetails.Add(employeeDetail);
                         await _trackerContext.SaveChangesAsync();
+                        
 
+                        foreach (var leaves in user.AddLeaveViews)
+                        {
+                            var leaveBalance = new LeaveBalance
+                            {
+                                EmployeeId = userinfo.EmployeeId,
+                                TotalEntitled = leaves.AllotedDays,
+                                LeaveTypeId = leaves.LeaveTypeID,
+                                RemainingLeaves = leaves.AllotedDays,
+                                UsedLeave = 0
+                            };
+                            _trackerContext.LeaveBalances.Add(leaveBalance);
+                        }
+
+                        await _trackerContext.SaveChangesAsync();
                         await transaction.CommitAsync();
                         return true;
                     }
@@ -113,7 +139,7 @@ namespace DatabaseAccess
             return totalEmployee;
         }
 
-        public async Task<bool> StoreCompany(CompanyRegistration company, string passwordhash, string passwordsalt)
+        public async Task<bool> StoreCompany(CompanyRegistrationView company, string passwordhash, string passwordsalt)
         {
             bool companyPresent = await _trackerContext.Company.AnyAsync(e => e.Email == company.Email);
             if (companyPresent)
@@ -297,7 +323,7 @@ namespace DatabaseAccess
             _trackerContext.SaveChanges();
         }
 
-        public bool deleteEmployee (UserDetail user)
+        public bool DeleteEmployee (UserDetail user)
         {
            if(user!=null)
             {
@@ -328,14 +354,14 @@ namespace DatabaseAccess
                                                      }).ToList();
         }
 
-        public List<UserProfile> UserProfile(string userEmail)
+        public List<UserProfileView> UserProfile(string userEmail)
         {
             var users = _trackerContext.UserDetails.FirstOrDefault(u=> u.Email== userEmail);
             string userRole = GetRoleName(userEmail);
 
             var profile = _trackerContext.UserDetails
                             .Where(u => u.Email == userEmail && !u.IsDeleted)
-                            .Select(u => new UserProfile
+                            .Select(u => new UserProfileView
                             {
                                  UserId = u.UserId,
                                  ProfilePicture = u.ProfilePicture,
@@ -350,15 +376,34 @@ namespace DatabaseAccess
                             }).ToList();
             return profile;
         }
+        public CompanyProfileView GetCompanyDetails(int companyID)
+        {
+            var companyProfile = _trackerContext.Company.Where(c => c.CompanyId == companyID).Select(
+                u=> new CompanyProfileView
+                {
+                    CompanyID = companyID,
+                    CompanyName = u.CompanyName,
+                    Email = u.Email,
+                    DateOfEstablishment = u.DateOfEstablishment,
+                    NumberOfEmployees = u.NumberOfEmployees,
+                    Address = u.Address,
+                    Country = u.Country,
+                    Industry = u.Industry,
+                    Website = u.Website,
+                    Location = u.Location,
+                    Phone = u.Phone
+                }).FirstOrDefault();
+            return companyProfile;
+        }
 
-        public List<UserDetailDashboard> GetBirthdayEmployees()
+        public async Task<List<UserDetailDashboardView>> GetBirthdayEmployees()
         {
             var today = DateTime.Today;
             var birthdayEmployee = (from user in _trackerContext.UserDetails
                                     join employeeDetail in _trackerContext.EmployeeDetails
                                     on user.UserId equals employeeDetail.EmployeeId
                                     where user.DateOfBirth.Month == today.Month && user.DateOfBirth.Day == today.Day
-                                    select new UserDetailDashboard
+                                    select new UserDetailDashboardView
                                     {
                                         EmployeeName = $"{user.FirstName} {user.LastName}",
                                         EmployeeId = user.UserId,
@@ -370,14 +415,14 @@ namespace DatabaseAccess
 
             return birthdayEmployee;
         }
-        public async Task<List<UserDetailDashboard>> GetNewHires()
+        public async Task<List<UserDetailDashboardView>> GetNewHires()
         {
             var twoweeksAgo = DateTime.Now.AddDays(-14);
             var newhires = (from user in _trackerContext.UserDetails
                             join employeeDetail in _trackerContext.EmployeeDetails
                             on user.UserId equals employeeDetail.EmployeeId
                             where user.CreatedAt.HasValue && user.CreatedAt.Value >= twoweeksAgo && user.IsDeleted == false
-                            select new UserDetailDashboard
+                            select new UserDetailDashboardView
                             {
                                 EmployeeName = $"{user.FirstName} {user.LastName}",
                                 EmployeeId = user.UserId,
@@ -386,17 +431,6 @@ namespace DatabaseAccess
                                 EmployeeDepartment = employeeDetail.Department
                             }).ToList();
             return newhires;
-        }
-
-        public async Task<int?> GetUserID (string UserEmail)
-        {
-            var user =  await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.Email == UserEmail);
-            return user?.UserId;
-        }
-        public async Task<int?> GetAdminID(string UserEmail)
-        {
-            var user = await _trackerContext.Company.FirstOrDefaultAsync(u => u.Email == UserEmail);
-            return user?.CompanyId;
         }
 
         public async Task<AttendanceRecord> StoreAttendanceCheckin(int userID)
@@ -428,7 +462,7 @@ namespace DatabaseAccess
             return attendance;
         }
 
-        private TimeSpan CalculateHours(DateTime? checkinTime, DateTime? checkoutTime)
+        private static TimeSpan CalculateHours(DateTime? checkinTime, DateTime? checkoutTime)
         {
             if(checkinTime.HasValue && checkoutTime.HasValue)
             {
@@ -507,9 +541,26 @@ namespace DatabaseAccess
             var companyLeave = await _trackerContext.CompanyLeaves.Where(cl => cl.CompanyId == companyid).ToListAsync();
             var leaves = companyLeave.Select(cl => new LeaveReportView
             {
+                LeaveID = cl.LeaveId,
                 LeaveName = cl.LeaveName,
                 AllotedDays = cl.LeaveQuota
             }).ToList();
+            return leaves;
+        }
+
+        public List<UserLeaveBalanceView> GetLeavesByUserID(int userID)
+        {
+            var leaves = (from leave in _trackerContext.LeaveBalances
+                          join leaveTypes in _trackerContext.TypesOfLeaves
+                          on leave.LeaveTypeId equals leaveTypes.LeaveTypeId
+                          where leave.LeaveTypeId == leaveTypes.LeaveTypeId
+                          select new UserLeaveBalanceView
+                          {
+                              LeaveName = leaveTypes.LeaveName,
+                              Balance = leave.RemainingLeaves,
+                              UserID = userID,
+                              LeaveTypeId = leaveTypes.LeaveTypeId,
+                          }).ToList();
             return leaves;
         }
     }

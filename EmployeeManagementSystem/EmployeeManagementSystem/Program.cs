@@ -8,6 +8,7 @@ using System.Text;
 using System.Net;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Common.Encryption;
+using Common.RedisImplementation;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ builder.Services.AddStackExchangeRedisCache(options=>
 {
     options.Configuration = builder.Configuration.GetConnectionString("ReddisString");
 });
+builder.Services.AddScoped<RedisService>();
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
 builder.Services.Configure<DatabaseOperations>(builder.Configuration.GetSection("DatabaseOperations"));
 builder.Services.AddScoped<DatabaseOperations, DatabaseOperations>();

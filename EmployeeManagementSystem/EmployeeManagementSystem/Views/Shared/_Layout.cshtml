@@ -25,11 +25,14 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                       <div>
+                       <div class="nav-options">
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="UserDashboard" asp-action="UserPage">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="UserDashboard" asp-action="ApplyLeaves">Apply Leave</a>
                                 </li>
                             }
                         </div> 

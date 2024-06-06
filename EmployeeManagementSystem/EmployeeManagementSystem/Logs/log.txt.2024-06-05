@@ -1,0 +1,30 @@
+2024-06-05 17:57:00,744 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,764 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 22ms reading results.
+ 2024-06-05 17:57:00,765 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,766 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-06-05 17:57:00,774 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,776 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,777 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-05 17:57:00,779 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-06-05 17:57:00,780 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (2ms).
+ 2024-06-05 17:57:00,781 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__companyID_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CompanyLeavesID], [c].[CompanyID], [c].[LeaveDescription], [c].[LeaveID], [c].[LeaveName], [c].[LeaveQuota]
+FROM [CompanyLeaves] AS [c]
+WHERE [c].[CompanyID] = @__companyID_0
+ 2024-06-05 17:57:00,783  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__companyID_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CompanyLeavesID], [c].[CompanyID], [c].[LeaveDescription], [c].[LeaveID], [c].[LeaveName], [c].[LeaveQuota]
+FROM [CompanyLeaves] AS [c]
+WHERE [c].[CompanyID] = @__companyID_0
+ 2024-06-05 17:57:00,784 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'CompanyLeaves' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-05 17:57:00,787 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'CompanyLeaves' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-05 17:57:00,788 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'CompanyLeaves' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-05 17:57:00,790 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,791 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 6ms reading results.
+ 2024-06-05 17:57:00,792 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,793 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (0ms).
+ 2024-06-05 17:57:00,796 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-05 17:57:00,799 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-05 17:57:00,800 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-06-05 17:57:00,805 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-05 17:57:00,807 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (1ms).
+ 

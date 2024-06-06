@@ -7,6 +7,7 @@ using Domain.ViewModels;
 using System.Security.Claims;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
+using Common.RedisImplementation;
 
 namespace EmployeeManagementSystem.Controllers
 {
@@ -19,45 +20,35 @@ namespace EmployeeManagementSystem.Controllers
         {
             _databaseOperations = databaseOperations;
             _distributedCache = distributedCache;
+
         }
 
 
         [Authorize(Roles ="Employee,Manager")]
         [HttpGet]
         [NoCache]
-        public IActionResult UserPage()
+        public async Task<IActionResult> UserPage()
         {
+
+            var redisService = new RedisService(_distributedCache);
+            var UserBirthday = redisService.GetValue<List<UserDetailDashboardView>>(RedisKey.BirthdayEmployee);
+            if (UserBirthday == null)
+            {
+
+                UserBirthday = await _databaseOperations.GetBirthdayEmployees();
+                redisService.SetValue(RedisKey.BirthdayEmployee, UserBirthday, TimeSpan.FromMinutes(10));
+            }
+            ViewBag.UserBirthdayList = UserBirthday;
+
+            var newHires = redisService.GetValue<List<UserDetailDashboardView>>(RedisKey.NewHires);
+            if (newHires == null)
+            {
+                 newHires = await _databaseOperations.GetNewHires();
+                redisService.SetValue(RedisKey.NewHires, newHires, TimeSpan.FromMinutes(10));
+            }
+            ViewBag.newHireUsers = newHires;
             
-            if (string.IsNullOrEmpty(_distributedCache.GetString("BirthdayEmployee")))
-            {
-                 var UserBirthday = _databaseOperations.GetBirthdayEmployees();
-                _distributedCache.SetString("BirthdayEmployee", JsonConvert.SerializeObject(UserBirthday), new DistributedCacheEntryOptions { 
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(1) });
 
-                ViewBag.UserBirthdayList = UserBirthday;
-            }
-            else
-            {
-                var BDusersFromString = _distributedCache.GetString("BirthdayEmployee");
-                ViewBag.UserBirthdayList = JsonConvert.DeserializeObject<List<UserDetailDashboard>>(BDusersFromString);
-            }
-
-            if (string.IsNullOrEmpty(_distributedCache.GetString("NewHires")))
-            {
-                var newHires = _databaseOperations.GetNewHires();
-
-                _distributedCache.SetString("NewHires", JsonConvert.SerializeObject(newHires), new DistributedCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
-                });
-
-                ViewBag.newHireUsers = newHires;
-            }
-            else
-            {
-                var NHusersFromString = _distributedCache.GetString("NewHires");
-                ViewBag.newHireUsers = JsonConvert.DeserializeObject<List<UserDetailDashboard>>(NHusersFromString);
-            }
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Login");
@@ -96,9 +87,36 @@ namespace EmployeeManagementSystem.Controllers
             var user = _databaseOperations.UserProfile(userEmail);
             return View(user);
         }
+        [HttpGet]
+        public IActionResult EditProfile(int id)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var userDetails = _databaseOperations.GetUsersById(id);
+                return RedirectToAction("EditEmployee","CompanyAdmin",userDetails);
+            }
+
+            return View();
+        }
+        [HttpGet]
         public IActionResult ApplyLeaves()
         {
-            return View();
+            var redisService = new RedisService(_distributedCache);
+            var userID = redisService.GetValue<int>(RedisKey.UserID);
+
+            var userDetail = _databaseOperations.GetUsersById(userID);
+            if (userDetail == null)
+            {
+                return View();
+            }
+            var leaveBalance = _databaseOperations.GetLeavesByUserID(userID);
+
+            var viewModel = new ApplyLeaveView
+            {
+                UserDetail = userDetail,
+                UserLeaveBalances = leaveBalance
+            };
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -118,9 +136,10 @@ namespace EmployeeManagementSystem.Controllers
 
             return Json(new { success = attendance != null });
         }
-
-        public IActionResult ApplyLeaves(LeaveApplication leave)
+        [HttpPost]
+        public IActionResult ApplyLeaves(ApplyLeaveView leave)
         {
+
             return View();
         }
 

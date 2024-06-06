@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Apply Leave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ApplyLeaveView;
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="@Url.Content("~/css/ApplyLeavePage.css")" />
+</head>
+<body>
+    
+    <div class="apply-leave-container">
+        <h2>Apply Leave</h2>
+        <form asp-action="ApplyLeave" method="post">
+            <div class="form-group">
+                <label for="EmployeeID">Employee ID *</label>
+                <select id="EmployeeID" name="EmployeeID" class="form-control">
+                    <option>@Model.UserDetail.FirstName @Model.UserDetail.LastName @Model.UserDetail.UserId</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="LeaveType">Leave type *</label>
+                <select id="LeaveType" name="LeaveType" class="form-control">
+                    <option value="">Select</option>
+                   @foreach(var leave in Model.UserLeaveBalances){
+                       <option value="@leave.LeaveTypeId">@leave.LeaveName <span>(Available: @leave.Balance)</span></option>
+                   }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="LeaveDate">Date *</label>
+                <div class="date-range">
+                    <input type="date" id="LeaveDateFrom" name="LeaveDateFrom" class="form-control" placeholder="From">
+                    <span class="date-to">To</span>
+                    <input type="date" id="LeaveDateTo" name="LeaveDateTo" class="form-control" placeholder="To">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Reason">Reason for leave</label>
+                <textarea id="Reason" name="Reason" class="form-control"></textarea>
+            </div>
+            <div class="form-group form-info">
+                <p>Please download the Form D from Files Module (Navigation: Services > Files > Organisation Files) and upload under "Form D" field.</p>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Apply</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("UserPage","UserDashboard")'">Cancel</button>
+
+            </div>
+        </form>
+    </div>
+
+</body>

@@ -1,0 +1,35 @@
+2024-06-04 17:37:37,598  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (17ms) [Parameters=[@__UserEmail_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[Address], [u].[CompanyID], [u].[CompanyName], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[EmployeeID], [u].[FirstName], [u].[Gender], [u].[isDeleted], [u].[LanguagePreference], [u].[LastLoginDate], [u].[LastName], [u].[PasswordHash], [u].[PasswordSalt], [u].[PhoneNumber], [u].[ProfilePicture], [u].[RoleID], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[SocialMedias], [u].[UpdatedAt], [u].[UserRole]
+FROM [UserDetails] AS [u]
+WHERE [u].[Email] = @__UserEmail_0
+ 2024-06-04 17:37:37,618 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:37:37,619 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 1ms reading results.
+ 2024-06-04 17:37:37,621 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:37:37,623 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (1ms).
+ 2024-06-04 17:37:37,628 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-06-04 17:37:37,631 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:37:37,633 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (2ms).
+ 2024-06-04 17:37:37,685 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 17:37:37,689 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 17:38:02,762  INFO Client.Controllers.LoginController.Logout [245] - MESSAGE: User has Logged out
+ 2024-06-04 17:38:02,807 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 17:38:02,809 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 17:38:03,478 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 17:38:03,485 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 17:38:05,098 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 17:38:05,101 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 17:38:14,973 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 17:38:14,976 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 17:38:18,253 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: Entity Framework Core 8.0.4 initialized 'EmployeeTrackerContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.4' with options: None
+ 2024-06-04 17:38:18,255 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-06-04 17:38:18,257 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (1ms).
+ 2024-06-04 17:38:18,259 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:18,261 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:18,262 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-04 17:38:18,263 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-06-04 17:38:18,266 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (3ms).
+ 2024-06-04 17:38:18,268 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__company_Email_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [c].[CompanyID], [c].[Address], [c].[CompanyName], [c].[Country], [c].[DateOfEstablishment], [c].[DomainName], [c].[Email], [c].[Industry], [c].[Location], [c].[NumberOfEmployees], [c].[PasswordHash], [c].[PasswordSalt], [c].[Phone], [c].[Website]
+FROM [Company] AS [c]
+WHERE [c].[Email] = @__company_Email_0
+ 

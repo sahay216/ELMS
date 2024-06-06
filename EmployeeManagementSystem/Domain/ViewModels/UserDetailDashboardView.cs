@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ViewModels
 {
-    public class UserDetailDashboard
+    public class UserDetailDashboardView
     {
         public int EmployeeId { get; set; }
         public string? EmployeeName { get; set; }

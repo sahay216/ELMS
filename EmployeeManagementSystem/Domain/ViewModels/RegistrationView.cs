@@ -53,8 +53,8 @@ namespace Domain.ViewModels
 
     public class LeaveBalanceView
     {
-        public int LeaveTypeID { get; set; }
-        public string LeaveName { get; set; }
+        public int? LeaveTypeID { get; set; }
+        public string? LeaveName { get; set; }
         public int AllotedDays { get; set; }
     }
 }

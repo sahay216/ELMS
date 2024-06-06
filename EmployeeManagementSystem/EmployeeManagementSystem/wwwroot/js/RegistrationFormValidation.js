@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    
+        
         $('#Signupform').submit(function (event) {
 
             event.preventDefault(); // Always prevent the default first

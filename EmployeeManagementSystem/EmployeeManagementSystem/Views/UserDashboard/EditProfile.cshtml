@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Profile Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/EditProfile.css")" />
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-image">
+                <img src="~/Content/Images/profile-picture.jpg" alt="Profile Picture" />
+            </div>
+            <div class="profile-details">
+                <h1>John Doe</h1>
+                <p>Associate Software Engineer</p>
+                <p>Delivery Engineering / Development</p>
+                <p>john.doe@example.com</p>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>About Me</h2>
+                <p><strong>Department:</strong> Delivery Engineering / Development</p>
+                <p><strong>Phone:</strong> +1-234-567-8901</p>
+                <p><strong>Time Zone:</strong> (GMT+05:30)</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Reporting To</h2>
+                <p><strong>Name:</strong> Aniruddha Gohad</p>
+                <p><strong>Position:</strong> Associate Director - L & D</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Basic Info</h2>
+                <p><strong>Employee ID:</strong> 5595</p>
+                <p><strong>Last Name:</strong> Doe</p>
+                <p><strong>First Name:</strong> John</p>
+                <p><strong>Email ID:</strong> john.doe@example.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

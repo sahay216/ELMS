@@ -1,0 +1,36 @@
+2024-06-04 17:38:21,987 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Creating DbConnection.
+ 2024-06-04 17:38:22,009 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Created DbConnection. (21ms).
+ 2024-06-04 17:38:22,011 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:22,012 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:22,014 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-04 17:38:22,021 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (7ms).
+ 2024-06-04 17:38:22,023 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (8ms).
+ 2024-06-04 17:38:22,024 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__companyid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CompanyLeavesID], [c].[CompanyID], [c].[LeaveDescription], [c].[LeaveID], [c].[LeaveName], [c].[LeaveQuota]
+FROM [CompanyLeaves] AS [c]
+WHERE [c].[CompanyID] = @__companyid_0
+ 2024-06-04 17:38:22,042  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (18ms) [Parameters=[@__companyid_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CompanyLeavesID], [c].[CompanyID], [c].[LeaveDescription], [c].[LeaveID], [c].[LeaveName], [c].[LeaveQuota]
+FROM [CompanyLeaves] AS [c]
+WHERE [c].[CompanyID] = @__companyid_0
+ 2024-06-04 17:38:22,043 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'CompanyLeaves' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-04 17:38:22,043 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'CompanyLeaves' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-04 17:38:22,044 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:22,045 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 2ms reading results.
+ 2024-06-04 17:38:22,046 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:22,046 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (0ms).
+ 2024-06-04 17:38:22,050 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 17:38:22,053 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 17:38:22,056 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-06-04 17:38:22,059 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-04 17:38:22,062 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (2ms).
+ 2024-06-04 18:00:38,729 DEBUG Microsoft.Extensions.Hosting.Internal.Host.Starting [0] - MESSAGE: Hosting starting
+ 2024-06-04 18:00:38,915  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-06-04 18:00:38,925  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-06-04 18:00:38,932  INFO Microsoft.Hosting.Lifetime.Invoke [0] - MESSAGE: Content root path: C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\EmployeeManagementSystem
+ 2024-06-04 18:00:38,932 DEBUG Microsoft.Extensions.Hosting.Internal.Host.Started [0] - MESSAGE: Hosting started
+ 2024-06-04 18:00:39,406 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: An 'IServiceProvider' was created for internal use by Entity Framework.
+ 2024-06-04 18:00:39,550 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 18:00:39,566 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-04 18:51:23,307 DEBUG Microsoft.Extensions.Hosting.Internal.Host.Starting [0] - MESSAGE: Hosting starting
+ 

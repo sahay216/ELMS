@@ -17,8 +17,16 @@
       "PackagePath": "staticwebassets\\Media\\logo_dashboard.png"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\ApplyLeavePage.css",
+      "PackagePath": "staticwebassets\\css\\ApplyLeavePage.css"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\CompanyRegistration.css",
       "PackagePath": "staticwebassets\\css\\CompanyRegistration.css"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\EditeProfile.css",
+      "PackagePath": "staticwebassets\\css\\EditeProfile.css"
     },
     {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\LeavePage.css",
@@ -51,6 +59,10 @@
     {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\AdminDashboard.js",
+      "PackagePath": "staticwebassets\\js\\AdminDashboard.js"
     },
     {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\Attendance.js",

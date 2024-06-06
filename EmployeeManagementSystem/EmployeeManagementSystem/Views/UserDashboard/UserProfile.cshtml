@@ -1,59 +1,57 @@
-﻿  @using Domain.ViewModels;
-@model List<Domain.ViewModels.UserProfile>
+﻿
+@model List<Domain.ViewModels.UserProfileView>
 
 @{
-    ViewBag.Title = "User Profile";
+    ViewBag.Title = "Profile Page";
 }
+
 <!DOCTYPE html>
-    <head>
-        <title></title>
-    <link rel="stylesheet" href="@Url.Content("~/css/UserProfile.css")"  />
-    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/EditeProfile.css")" />
 </head>
-    <body>
-    <div class="container">
-        <div class="content">
-            <h2>User Profile</h2>
-            @foreach (var profile in Model)
-            {
-                <div class="user-profile">
-                    <div class="profile-header">
-                        @if (!string.IsNullOrEmpty(profile.ProfilePicture))
-                        {
-                            <img src="@Url.Content($"~/profilePicture/{profile.ProfilePicture}")" alt="Profile Image" class="profile-image">
-                        }
-                        else
-                        {
-                            <div class="default-profile-image"></div>
-                        }
-                        <div class="profile-details">
-                            <h3>@profile.FullName</h3>
-                            <p>@profile.Email</p>
-                        </div>
-                        <a href="#" class="edit-button">Edit</a>
-                    </div>
-                    <div class="profile-info">
-                        <div class="info-item">
-                            <p><strong>Full Name:</strong> @profile.FullName</p>
-                            <p><strong>Phone No:</strong> @profile.PhoneNumber</p>
-                        </div>
-                        <div class="info-item">
-                            <p><strong>Gender:</strong> @profile.Gender</p>
-                            <p><strong>Address:</strong> @profile.Address</p>
-                        </div>
-                        <div class="info-item">
-                            <p><strong>Language:</strong> @profile.LanguagePreference</p>
-                            <p><strong>DOB:</strong> @profile.DateOfBirth</p>
-                        </div>
-                        <div class="info-item">
-                            <p><strong>Role:</strong> @profile.UserRole</p>
-                            <p><strong>Date Of Joining:</strong> @profile.CreatedAt</p>
-                        </div>
-                    </div>
-                </div>
-            }
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-image">
+                <img src="~/Content/Images/profile-picture.jpg" alt="Profile Picture" />
+            </div>
+            <div class="profile-details">
+                <h1>John Doe</h1>
+                <p>Associate Software Engineer</p>
+                <p>Delivery Engineering / Development</p>
+                <p>john.doe@example.com</p>
+            </div>
         </div>
-    </body>
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>About Me</h2>
+                <p><strong>Department:</strong> Delivery Engineering / Development</p>
+                <p><strong>Phone:</strong> +1-234-567-8901</p>
+                <p><strong>Time Zone:</strong> (GMT+05:30)</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Reporting To</h2>
+                <p><strong>Name:</strong> Aniruddha Gohad</p>
+                <p><strong>Position:</strong> Associate Director - L & D</p>
+            </div>
+
+            <div class="profile-section">
+                <h2>Basic Info</h2>
+                <p><strong>Employee ID:</strong> 5595</p>
+                <p><strong>Last Name:</strong> Doe</p>
+                <p><strong>First Name:</strong> John</p>
+                <p><strong>Email ID:</strong> john.doe@example.com</p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+
 
 

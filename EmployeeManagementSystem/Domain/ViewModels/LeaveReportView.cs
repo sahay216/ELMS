@@ -8,6 +8,7 @@ namespace Domain.ViewModels
 {
     public class LeaveReportView
     {
+        public int? LeaveID { get; set; }
         public string? LeaveName { get; set; }
         public int AllotedDays { get; set; }
         public int? AvailableDays { get; set; }

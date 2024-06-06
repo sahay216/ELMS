@@ -41,7 +41,7 @@ namespace EmployeeManagementSystem.Controllers
             else
             {
                 var NHusersFromString = _distributedCache.GetString("NewHires");
-                ViewBag.newHireUsers = JsonConvert.DeserializeObject<List<UserDetailDashboard>>(NHusersFromString);
+                ViewBag.newHireUsers = JsonConvert.DeserializeObject<List<UserDetailDashboardView>>(NHusersFromString);
             }
 
 
@@ -73,7 +73,22 @@ namespace EmployeeManagementSystem.Controllers
         {
             return RedirectToAction("RegisterEmployee", "Login");
         }
-
+        [HttpGet]
+        public IActionResult ViewProfile()
+        {
+            if (_distributedCache.GetString("UserID") != null)
+            {
+                var companyIDstring = _distributedCache.GetString("UserID");
+                int companyID = JsonConvert.DeserializeObject<int>(companyIDstring);
+                var company = _databaseOperations.GetCompanyDetails(companyID);
+                if(company!= null)
+                {
+                    return View(company);
+                }
+            }
+            return View(new CompanyProfileView());
+               
+        }
         [HttpGet]
         public IActionResult ViewEmployees()
         {
@@ -118,7 +133,7 @@ namespace EmployeeManagementSystem.Controllers
             {
                 return NotFound();
             }
-            bool deleteSuccess = _databaseOperations.deleteEmployee(user);
+            bool deleteSuccess = _databaseOperations.DeleteEmployee(user);
             if (deleteSuccess)
             {
                 return RedirectToAction("ViewEmployees");

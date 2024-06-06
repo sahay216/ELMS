@@ -19,7 +19,7 @@
 
     // Function to load the leaves table
     function loadLeavesTable() {
-        $.get("@Url.Action('LeaveTable', 'LeaveManage')", function (data) {
+        $.get("LeaveManage/LeaveTable", function (data) {
             $("#leavesTableContainer").html(data);
             initializeTableEvents();
         });

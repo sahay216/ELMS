@@ -1,4 +1,4 @@
-﻿@*
+﻿    @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @using Domain.ViewModels;
@@ -8,7 +8,7 @@
     ViewData["Title"] = "Admin Dashboard";
     Layout = "../Shared/_LayoutAdmin.cshtml";
 }
-@model List<Domain.ViewModels.UserDetailDashboard>
+@model List<Domain.ViewModels.UserDetailDashboardView>
 
 <!DOCTYPE html>
 <head>
@@ -112,7 +112,7 @@
             <span> <hr> </span>
             <div class="card-content">
                 @{
-                    var newHires = ViewBag.newHireUsers as List<UserDetailDashboard>;
+                    var newHires = ViewBag.newHireUsers as List<UserDetailDashboardView>;
                     if (newHires == null || !newHires.Any())
                     {
                                     <div class="no-bday">
@@ -152,61 +152,10 @@
                 Content
             </div>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="~/js/AdminDashboard.js"></script>
 </body>
-<script>
-    $(document).ready(function () {
-        $.ajax({
-            url: @Url.Action("ViewLeaves", "CompanyAdmin"),
-            type: 'GET',
-            success: function (data) {
-                $('#leaveReportContainer').html(data);
 
-            },
-            error: function () {
-                $('#leaveReportContainer').html('<p> Error Loading the leave Report data.</p>');
-            }
-        });
-    });
-    const boxes = document.querySelectorAll('.box-card');
-    let draggedBox = null;
 
-    boxes.forEach(box => {
-        box.addEventListener('dragstart', (e) => {
-            draggedBox = box;
-            setTimeout(() => {
-                box.style.display = 'none';
-            }, 0);
-        });
-
-        box.addEventListener('dragend', (e) => {
-            setTimeout(() => {
-                draggedBox.style.display = 'block';
-                draggedBox = null;
-            }, 0);
-        });
-
-        box.addEventListener('dragover', (e) => {
-            e.preventDefault();
-        });
-
-        box.addEventListener('dragenter', (e) => {
-            e.preventDefault();
-            box.classList.add('drag-over');
-        });
-
-        box.addEventListener('dragleave', (e) => {
-            box.classList.remove('drag-over');
-        });
-
-        box.addEventListener('drop', (e) => {
-            box.classList.remove('drag-over');
-            if (draggedBox !== box) {
-                let temp = box.innerHTML;
-                box.innerHTML = draggedBox.innerHTML;
-                draggedBox.innerHTML = temp;
-            }
-        });
-    });
-
-</script>
 </html>

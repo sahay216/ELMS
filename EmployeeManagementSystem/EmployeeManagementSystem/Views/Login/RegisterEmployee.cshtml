@@ -115,7 +115,17 @@
                 </div>   
             </div>
             <div class="form-input-inline">
-                
+                @foreach (var leave in Model.AddLeaveViews)
+                {
+                    <div class="form-group leave-balance-group">
+                        <label for="@leave.LeaveTypeID">@leave.LeaveName</label>
+                        <div class="input-group">
+                            <button type="button" class="btn btn-outline-secondary" onclick="decrementLeave('@leave.LeaveTypeID')">-</button>
+                            <input type="number" class="form-control" id="@leave.LeaveTypeID" name="Leave[@leave.LeaveTypeID]" value="@leave.AllotedDays" min="0">
+                            <button type="button" class="btn btn-outline-secondary" onclick="incrementLeave('@leave.LeaveTypeID')">+</button>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
         <div class="form-section">
@@ -139,6 +149,7 @@
                   
         </form>        
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="~/js/AdminDashboard.js"></script>
         <script src="~/js/RegistrationFormValidation.js"></script>
 </body> 
 </html>

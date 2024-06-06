@@ -37,7 +37,7 @@
             <span> <hr> </span>
             <div class="card-content">
                 @{
-                    var birthdayUserDetails = ViewBag.UserBirthdayList as List<UserDetailDashboard>;
+                    var birthdayUserDetails = ViewBag.UserBirthdayList as List<UserDetailDashboardView>;
                     if(birthdayUserDetails == null || !birthdayUserDetails.Any())
                     {
                         <div class="no-bday">
@@ -111,7 +111,7 @@
             <span> <hr> </span>
             <div class="card-content">
                 @{
-                    var newHires = ViewBag.newHireUsers as List<UserDetailDashboard>;
+                    var newHires = ViewBag.newHireUsers as List<UserDetailDashboardView>;
                     if (newHires == null || !newHires.Any())
                     {
                         <div class="no-bday">

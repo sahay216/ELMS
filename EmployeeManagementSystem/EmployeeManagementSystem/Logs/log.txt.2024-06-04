@@ -1,0 +1,8 @@
+2024-06-04 18:51:23,856  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Application started. Press Ctrl+C to shut down.
+ 2024-06-04 18:51:23,892  INFO Microsoft.Hosting.Lifetime.OnApplicationStarted [0] - MESSAGE: Hosting environment: Development
+ 2024-06-04 18:51:23,893  INFO Microsoft.Hosting.Lifetime.Invoke [0] - MESSAGE: Content root path: C:\Users\Coditas\Desktop\Employee Leave Tracker\Project\EmployeeManagementSystem\EmployeeManagementSystem
+ 2024-06-04 18:51:23,894 DEBUG Microsoft.Extensions.Hosting.Internal.Host.Started [0] - MESSAGE: Hosting started
+ 2024-06-04 18:51:24,557 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: An 'IServiceProvider' was created for internal use by Entity Framework.
+ 2024-06-04 18:51:24,726 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-04 18:51:24,741 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 

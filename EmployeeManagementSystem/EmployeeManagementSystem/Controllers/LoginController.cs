@@ -2,6 +2,7 @@
 using Domain.Models;
 using Domain.ViewModels;
 using Common.Encryption;
+using Common.RedisImplementation;
 using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
 using DatabaseAccess;
@@ -21,6 +22,7 @@ namespace Client.Controllers
 		private readonly IHttpContextAccessor _httpcontextAccessor;
         private readonly ILogger<LoginController> _logger;
         private readonly IDistributedCache _distributedCache;
+
         //private readonly RegistrationService _registrationService;
         public LoginController(DatabaseOperations databaseOperations, IOptions<EncryptionSettings> encryptionsettings, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ILogger<LoginController> logger, IDistributedCache distributedCache)
         {
@@ -42,10 +44,23 @@ namespace Client.Controllers
 		}
         [Authorize(Roles = "Admin")]
         [HttpGet]
-		public IActionResult RegisterEmployee()
+		public async Task<IActionResult> RegisterEmployee()
 		{
-
-			return View();
+            var companyidstring = _distributedCache.GetString("UserID");
+            int CompanyID = JsonConvert.DeserializeObject<int>(companyidstring);
+            var leaveTypes = await _databaseOperations.GetLeaveReport(CompanyID);
+            var leaveBalance = new List<LeaveBalanceView>();
+            foreach (var leaveType in leaveTypes)
+            {
+                leaveBalance.Add(new LeaveBalanceView
+                {
+                    LeaveTypeID = leaveType.LeaveID,
+                    LeaveName = leaveType.LeaveName,
+                    AllotedDays = leaveType.AllotedDays
+                });     
+            }
+            var registrationModel = new RegistrationView { AddLeaveViews = leaveBalance };
+			return View(registrationModel);
 		}
         public IActionResult CompanyRegistration()
 		{
@@ -99,7 +114,7 @@ namespace Client.Controllers
 			return View(user);
 		}
 		[HttpPost]
-		public async Task<IActionResult> CompanyRegistration(CompanyRegistration company)
+		public async Task<IActionResult> CompanyRegistration(CompanyRegistrationView company)
 		{
 			ModelState.Clear();
             var validationResults = company.Validate(new ValidationContext(company));
@@ -159,19 +174,11 @@ namespace Client.Controllers
 					}) ;
                     _logger.LogInformation($"Login was Successful for user {user.Email}");
 
-                    if (string.IsNullOrEmpty(_distributedCache.GetString("UserID")))
-                    {
-                        var UserID = await _databaseOperations.GetUserID(user.Email);
 
-                        if (UserID.HasValue)
-                        {
-                            _distributedCache.SetString("UserID", JsonConvert.SerializeObject(UserID.Value), new DistributedCacheEntryOptions
-                            {
-                                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
-                            });
-                        }
-                       
-                    }
+                    var radisService = new RedisService(_distributedCache);
+                    var UserID = await _databaseOperations.GetUserID(user.Email);
+                    radisService.SetValue(RedisKey.UserID, UserID, TimeSpan.FromDays(10));
+
 
                     TempData["LoginSuccess"] = "Login Successful";
 					return RedirectToAction("UserPage","UserDashboard");
@@ -206,20 +213,13 @@ namespace Client.Controllers
                     HttpContext.Response.Cookies.Append("jwtToken", tokenString, new CookieOptions
                     {
                         HttpOnly = true,
-                        Secure = true,
+                        Secure = true,  
                         SameSite = SameSiteMode.Strict,
                         Expires = DateTime.Now.AddMinutes(5)
                     });
-                    if (string.IsNullOrEmpty(_distributedCache.GetString("UserID")))
-                    {
-                        var UserID = await _databaseOperations.GetAdminID(companyLogin.Email);
-
-                        var Adminidstring = JsonConvert.SerializeObject(UserID);
-                        _distributedCache.SetString("UserID", JsonConvert.SerializeObject(UserID), new DistributedCacheEntryOptions
-                        {
-                            AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
-                        });
-                    }
+                    var radisService = new RedisService(_distributedCache);
+                    var UserID = await _databaseOperations.GetAdminID(companyLogin.Email);
+                    radisService.SetValue(RedisKey.UserID, UserID);
                     return RedirectToAction("AdminPage", "CompanyAdmin");
                 }
 			}
@@ -230,7 +230,9 @@ namespace Client.Controllers
 		{
 			Response.Cookies.Delete("jwtToken");
             _logger.LogInformation("User has Logged out");
-            _distributedCache.Remove("UserID");
+
+            var radisService = new RedisService(_distributedCache);
+            radisService.DeleteString(RedisKey.UserID);
 			return RedirectToAction("Login");
 		}
         [HttpPost]

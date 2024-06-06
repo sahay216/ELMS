@@ -42,8 +42,12 @@ a{
     background-color: #76885B;
 }
 .logo_dashboard{
+    
     height:45px;
-    width:170px;
+    width:250px;
+    padding-left: 5px;
+    padding-right: 6px;
+
 }
 /* Card styling */
 .card {

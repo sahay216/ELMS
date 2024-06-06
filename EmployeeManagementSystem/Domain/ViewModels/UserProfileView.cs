@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ViewModels
 {
-    public class UserProfile
+    public class UserProfileView
     {
         public int UserId { get; set; }
 

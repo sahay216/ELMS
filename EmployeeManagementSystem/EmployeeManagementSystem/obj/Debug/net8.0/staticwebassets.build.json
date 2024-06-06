@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/nrEckDG/AYARcbC8pQBxJvHT9UInYOooEFXu48itaA=",
+  "Hash": "YVduQLk4QvXh1CCUpM+7iYMKTfmQW/F98SOgLo1m2Y0=",
   "Source": "EmployeeManagementSystem",
   "BasePath": "_content/EmployeeManagementSystem",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\EmployeeManagementSystem.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\ApplyLeavePage.css",
+      "SourceId": "EmployeeManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystem",
+      "RelativePath": "css/ApplyLeavePage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ApplyLeavePage.css"
+    },
+    {
       "Identity": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\CompanyRegistration.css",
       "SourceId": "EmployeeManagementSystem",
       "SourceType": "Discovered",
@@ -72,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\CompanyRegistration.css"
+    },
+    {
+      "Identity": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\EditeProfile.css",
+      "SourceId": "EmployeeManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystem",
+      "RelativePath": "css/EditeProfile.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\EditeProfile.css"
     },
     {
       "Identity": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\LeavePage.css",
@@ -224,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\AdminDashboard.js",
+      "SourceId": "EmployeeManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EmployeeManagementSystem",
+      "RelativePath": "js/AdminDashboard.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\AdminDashboard.js"
     },
     {
       "Identity": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\Attendance.js",

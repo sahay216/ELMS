@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.ViewModels
 {
-    public class CompanyRegistration
+    public class CompanyRegistrationView
     {
         public string? CompanyName { get; set; }
 
