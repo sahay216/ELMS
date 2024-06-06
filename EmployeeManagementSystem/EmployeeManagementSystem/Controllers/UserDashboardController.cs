@@ -139,7 +139,7 @@ namespace EmployeeManagementSystem.Controllers
         [HttpPost]
         public IActionResult ApplyLeaves(ApplyLeaveView leave)
         {
-
+                
             return View();
         }
 

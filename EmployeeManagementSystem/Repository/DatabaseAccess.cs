@@ -3,7 +3,6 @@ using Domain.Models;
 using Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Services.Authentication;
-
 using System.Transactions;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -85,7 +84,7 @@ namespace DatabaseAccess
                         UserDetail? manager = null;
                         manager = await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.UserId == user.ManagerID);
 
-                        string managerFullname = $"{manager.FirstName} {manager.LastName}".Trim();
+                        string managerFullname = $"{manager.FirstName}{manager.LastName}".Trim();
                         string enteredName = user.ManagerName.Trim();
                         if (manager == null || managerFullname != enteredName)
                         {
@@ -113,7 +112,7 @@ namespace DatabaseAccess
                                 RemainingLeaves = leaves.AllotedDays,
                                 UsedLeave = 0
                             };
-                            _trackerContext.LeaveBalances.Add(leaveBalance);
+                            _trackerContext.LeaveBalances.Add(leaveBalance); 
                         }
 
                         await _trackerContext.SaveChangesAsync();

@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\js\\AdminDashboard.js"
     },
     {
+      "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\ApplyLeaveValidation.js",
+      "PackagePath": "staticwebassets\\js\\ApplyLeaveValidation.js"
+    },
+    {
       "Id": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\Attendance.js",
       "PackagePath": "staticwebassets\\js\\Attendance.js"
     },

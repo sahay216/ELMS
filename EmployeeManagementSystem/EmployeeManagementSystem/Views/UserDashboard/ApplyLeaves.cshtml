@@ -23,7 +23,7 @@
                 <select id="LeaveType" name="LeaveType" class="form-control">
                     <option value="">Select</option>
                    @foreach(var leave in Model.UserLeaveBalances){
-                       <option value="@leave.LeaveTypeId">@leave.LeaveName <span>(Available: @leave.Balance)</span></option>
+                        <option value="@leave.LeaveTypeId" data-balance="@leave.Balance">@leave.LeaveName <span>(Available: @leave.Balance)</span></option>
                    }
                 </select>
             </div>
@@ -43,11 +43,14 @@
                 <p>Please download the Form D from Files Module (Navigation: Services > Files > Organisation Files) and upload under "Form D" field.</p>
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Apply</button>
+                <button type="submit" class="btn btn-primary" onclick="return validateLeaveApplication()">Apply</button>
                 <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("UserPage","UserDashboard")'">Cancel</button>
 
             </div>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/ApplyLeaveValidation.js"></script>
 
 </body>

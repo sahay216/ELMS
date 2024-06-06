@@ -11,32 +11,52 @@
       "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\login\\registeremployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\login\\registeremployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\controllers\\leavemanagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\controllers\\leavemanagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\wwwroot\\css\\editeprofile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\wwwroot\\css\\editeprofile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\controllers\\companyadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\controllers\\companyadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\wwwroot\\js\\applyleavevalidation.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\wwwroot\\js\\applyleavevalidation.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\applyleaves.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\applyleaves.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\userpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\wwwroot\\css\\applyleavepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\wwwroot\\css\\applyleavepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\wwwroot\\css\\editeprofile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\wwwroot\\css\\editeprofile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\controllers\\userdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\controllers\\leavemanagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\controllers\\leavemanagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB90E18A-0354-437B-AFAE-E06133777CD5}|Domain\\Domain.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\domain\\viewmodels\\applyleaveview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,14 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\views\\userdashboard\\applyleaves.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\views\\userdashboard\\applyleaves.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\wwwroot\\css\\applyleavepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\wwwroot\\css\\applyleavepage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB90E18A-0354-437B-AFAE-E06133777CD5}|Domain\\Domain.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\domain\\viewmodels\\userleavebalanceview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -101,10 +113,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\wwwroot\\js\\leavepage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\wwwroot\\js\\leavepage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|c:\\users\\coditas\\desktop\\employee leave tracker\\project\\employeemanagementsystem\\employeemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC66AF3-27C3-4598-98F6-4FB64D87FBEE}|EmployeeManagementSystem\\EmployeeManagementSystem.csproj|solutionrelative:employeemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -114,17 +122,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 394,
-          "SelectedChildIndex": 25,
+          "SelectedChildIndex": 27,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Program.cs",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Program.cs",
               "RelativeToolTip": "EmployeeManagementSystem\\Program.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAgwD8AAAAAAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAIAwwD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-06T06:37:07.978Z",
               "IsPinned": true,
@@ -138,7 +146,7 @@
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Controllers\\LoginController.cs",
               "RelativeToolTip": "EmployeeManagementSystem\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOMAAAACAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAApwDwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-01T19:42:41.087Z",
               "IsPinned": true,
@@ -146,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "LeaveManageController.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Controllers\\LeaveManageController.cs",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Controllers\\LeaveManageController.cs",
@@ -160,13 +168,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "UserDashboardController.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Controllers\\UserDashboardController.cs",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Controllers\\UserDashboardController.cs",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Controllers\\UserDashboardController.cs",
               "RelativeToolTip": "EmployeeManagementSystem\\Controllers\\UserDashboardController.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAAAFMAAAAJAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAIwF8AAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T09:45:15.812Z",
               "IsPinned": true,
@@ -174,13 +182,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "CompanyAdminController.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Controllers\\CompanyAdminController.cs",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Controllers\\CompanyAdminController.cs",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Controllers\\CompanyAdminController.cs",
               "RelativeToolTip": "EmployeeManagementSystem\\Controllers\\CompanyAdminController.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAowF8AAAANAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwEcAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T20:16:46.719Z",
               "IsPinned": true,
@@ -188,7 +196,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "RegisterEmployee.cshtml",
+              "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\Login\\RegisterEmployee.cshtml",
+              "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\Login\\RegisterEmployee.cshtml",
+              "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\Login\\RegisterEmployee.cshtml",
+              "RelativeToolTip": "EmployeeManagementSystem\\Views\\Login\\RegisterEmployee.cshtml",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAG8AAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T11:40:46.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApplyLeaveValidation.js",
+              "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\ApplyLeaveValidation.js",
+              "RelativeDocumentMoniker": "EmployeeManagementSystem\\wwwroot\\js\\ApplyLeaveValidation.js",
+              "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\ApplyLeaveValidation.js",
+              "RelativeToolTip": "EmployeeManagementSystem\\wwwroot\\js\\ApplyLeaveValidation.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-06T11:22:23.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "EditeProfile.css",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\EditeProfile.css",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\wwwroot\\css\\EditeProfile.css",
@@ -201,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "EditProfile.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\UserDashboard\\EditProfile.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\UserDashboard\\EditProfile.cshtml",
@@ -214,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "UserProfile.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\UserDashboard\\UserProfile.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\UserDashboard\\UserProfile.cshtml",
@@ -222,12 +256,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\UserDashboard\\UserProfile.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T08:02:28.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T08:02:28.461Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "ViewEmployees.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\CompanyAdmin\\ViewEmployees.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\CompanyAdmin\\ViewEmployees.cshtml",
@@ -235,12 +268,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\CompanyAdmin\\ViewEmployees.cshtml",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T07:55:01.26Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T07:55:01.26Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "UserLogin.css",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\UserLogin.css",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\wwwroot\\css\\UserLogin.css",
@@ -248,12 +280,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\wwwroot\\css\\UserLogin.css",
               "ViewState": "AQIAAHMAAAAAAAAAAAAAAHYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-06-06T07:49:55.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T07:49:55.903Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\Login\\Login.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\Login\\Login.cshtml",
@@ -261,12 +292,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\Login\\Login.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T07:49:28.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T07:49:28.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\_ViewImports.cshtml",
@@ -274,12 +304,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\_ViewImports.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T06:57:58.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T06:57:58.589Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "RegistrationView.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\ViewModels\\RegistrationView.cs",
               "RelativeDocumentMoniker": "Domain\\ViewModels\\RegistrationView.cs",
@@ -287,12 +316,11 @@
               "RelativeToolTip": "Domain\\ViewModels\\RegistrationView.cs",
               "ViewState": "AQIAABYAAAAAAAAAAIA7wBQAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T06:45:40.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T06:45:40.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "LeaveBalance.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\Models\\LeaveBalance.cs",
               "RelativeDocumentMoniker": "Domain\\Models\\LeaveBalance.cs",
@@ -300,12 +328,11 @@
               "RelativeToolTip": "Domain\\Models\\LeaveBalance.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T06:43:22.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T06:43:22.965Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "UserLeaveBalanceView.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\ViewModels\\UserLeaveBalanceView.cs",
               "RelativeDocumentMoniker": "Domain\\ViewModels\\UserLeaveBalanceView.cs",
@@ -313,25 +340,23 @@
               "RelativeToolTip": "Domain\\ViewModels\\UserLeaveBalanceView.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T06:31:37.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T06:31:37.542Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Domain",
+              "DocumentIndex": 16,
+              "Title": "Domain.csproj",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\Domain.csproj",
               "RelativeDocumentMoniker": "Domain\\Domain.csproj",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\Domain.csproj",
               "RelativeToolTip": "Domain\\Domain.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-06-06T06:30:02.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T06:30:02.212Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "ApplyLeaveView.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\ViewModels\\ApplyLeaveView.cs",
               "RelativeDocumentMoniker": "Domain\\ViewModels\\ApplyLeaveView.cs",
@@ -339,12 +364,11 @@
               "RelativeToolTip": "Domain\\ViewModels\\ApplyLeaveView.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T05:36:44.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T05:36:44.793Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\Shared\\_Layout.cshtml",
@@ -352,25 +376,24 @@
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AQIAABUAAAAAAAAAAAAAACUAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-06T05:02:19.261Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T05:02:19.261Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "UserPage.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\UserDashboard\\UserPage.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\UserDashboard\\UserPage.cshtml",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\UserDashboard\\UserPage.cshtml",
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\UserDashboard\\UserPage.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAA2AAAA",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAAAJwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-06T04:50:49.861Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "AdminDashboard.js",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\AdminDashboard.js",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\wwwroot\\js\\AdminDashboard.js",
@@ -378,12 +401,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\wwwroot\\js\\AdminDashboard.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-06T04:46:06.922Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-06T04:46:06.922Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "leavePage.js",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\js\\leavePage.js",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\wwwroot\\js\\leavePage.js",
@@ -391,12 +413,11 @@
               "RelativeToolTip": "EmployeeManagementSystem\\wwwroot\\js\\leavePage.js",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-06-05T12:07:39.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T12:07:39.046Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 8,
               "Title": "ApplyLeavePage.css",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\wwwroot\\css\\ApplyLeavePage.css",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\wwwroot\\css\\ApplyLeavePage.css",
@@ -409,20 +430,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 6,
               "Title": "ApplyLeaves.cshtml",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\UserDashboard\\ApplyLeaves.cshtml",
               "RelativeDocumentMoniker": "EmployeeManagementSystem\\Views\\UserDashboard\\ApplyLeaves.cshtml",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\EmployeeManagementSystem\\Views\\UserDashboard\\ApplyLeaves.cshtml",
               "RelativeToolTip": "EmployeeManagementSystem\\Views\\UserDashboard\\ApplyLeaves.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABNAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAADEAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-06-05T11:24:54.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "UserProfileView.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Domain\\ViewModels\\UserProfileView.cs",
               "RelativeDocumentMoniker": "Domain\\ViewModels\\UserProfileView.cs",
@@ -430,12 +451,11 @@
               "RelativeToolTip": "Domain\\ViewModels\\UserProfileView.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T11:06:28.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T11:06:28.699Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "RedisService.cs",
               "DocumentMoniker": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Common\\RedisImplementation\\RedisService.cs",
               "RelativeDocumentMoniker": "Common\\RedisImplementation\\RedisService.cs",
@@ -443,8 +463,7 @@
               "RelativeToolTip": "Common\\RedisImplementation\\RedisService.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAQwBcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-05T07:26:13.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-05T07:26:13.422Z"
             },
             {
               "$type": "Document",
@@ -454,7 +473,7 @@
               "RelativeDocumentMoniker": "Repository\\DatabaseAccess.cs",
               "ToolTip": "C:\\Users\\Coditas\\Desktop\\Employee Leave Tracker\\Project\\EmployeeManagementSystem\\Repository\\DatabaseAccess.cs",
               "RelativeToolTip": "Repository\\DatabaseAccess.cs",
-              "ViewState": "AQIAAA8BAAAAAAAAAAA7wHsBAAAIAAAA",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAwwHIAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T10:51:28.377Z",
               "EditorCaption": ""
