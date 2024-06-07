@@ -183,30 +183,31 @@ public partial class EmployeeTrackerContext : DbContext
 
         modelBuilder.Entity<LeaveBalance>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Leave_Balance");
+            entity.HasKey(e => e.BalanceId).HasName("PK__Leave_Ba__A760D59E19B4D789");
 
+            entity.ToTable("Leave_Balance");
+
+            entity.Property(e => e.BalanceId).HasColumnName("BalanceID");
             entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
             entity.Property(e => e.LeaveTypeId).HasColumnName("LeaveTypeID");
 
-            entity.HasOne(d => d.Employee).WithMany()
+            entity.HasOne(d => d.Employee).WithMany(p => p.LeaveBalances)
                 .HasForeignKey(d => d.EmployeeId)
                 .HasConstraintName("FK__Leave_Bal__Emplo__0A9D95DB");
 
-            entity.HasOne(d => d.LeaveType).WithMany()
+            entity.HasOne(d => d.LeaveType).WithMany(p => p.LeaveBalances)
                 .HasForeignKey(d => d.LeaveTypeId)
                 .HasConstraintName("FK__Leave_Bal__Leave__46B27FE2");
         });
 
         modelBuilder.Entity<PublicHoliday>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("Public_Holidays");
+            entity.HasKey(e => e.HolidayId).HasName("PK__Public_H__2D35D59A17B4D321");
 
-            entity.Property(e => e.Description).HasMaxLength(255);
+            entity.ToTable("Public_Holidays");
+
             entity.Property(e => e.HolidayId).HasColumnName("HolidayID");
+            entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.Name).HasMaxLength(100);
         });
 

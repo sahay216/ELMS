@@ -1,7 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@using Domain.ViewModels;
+
 @{
     ViewData["Title"] = "User Dashboard";
 }
@@ -71,12 +71,36 @@
 
         <div class="box-card" draggable="true">
             <div class="box-header">
-               <h2>Public Holiday</h2> 
+                <h2>Public Holiday</h2> 
             </div>
             <span> <hr> </span>
             <div class="card-content">
                 <div class="no-bday">
-                    <p class="no-bday-display">No Upcoming Holidays </p>
+                    @{
+                        var publicHolidayList = ViewBag.publicHolidays as List<HolidayView>;
+                        if(publicHolidayList== null || !publicHolidayList.Any())
+                        {
+                            <div class="no-holiday">
+                                <p class="no-bday-display">No Upcoming Holidays </p>
+                            </div>
+                        }
+                        else
+                        {
+                            foreach(var holiday in publicHolidayList)
+                            {
+                                <div class="holiday-item">
+                                    <div>
+
+                                        <p class="holiday-name">@holiday.HolidayName</p>
+                                    </div>
+                                    <div>
+                                        <p class="holiday-date">@holiday.HolidayDate.ToString("dd-MMM")</p>
+                                        <p class="holiday-day">@holiday.HolidayDayofWeek</p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
                 </div>
             </div>
         </div>

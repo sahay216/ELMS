@@ -46,6 +46,7 @@ namespace Common.RedisImplementation
         UserID,
         NewHires,
         BirthdayEmployee,
+        PublicHolidays,
 
     }
 }

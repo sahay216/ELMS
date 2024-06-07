@@ -34,7 +34,6 @@ namespace Domain.ViewModels
 
         public DateTime? CreatedAt { get; set; }
 
-
         public string? CompanyName { get; set; }
 
     }

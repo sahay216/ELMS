@@ -4,7 +4,7 @@
 
             event.preventDefault(); // Always prevent the default first
             
-        var isError = false;
+            var isError = false;
             $('.invalid-feedback').hide().text(''); // Reset error messages
 
 
@@ -43,7 +43,7 @@
 
             }
 
-            var dateOfBirth = $('#DateOfBirth').val();
+            var dateOfBirth = $('#DateofBirth').val();
             var today = new Date();
             var birthDate = new Date(dateOfBirth);
             var age = today.getFullYear() - birthDate.getFullYear();
@@ -63,4 +63,20 @@
             this.submit(); // Prevent form submission if there are errors
 
         });
+
+        $.ajax({
+            url: 'CompanyAdmin/EmployeeRegistration',
+            type: 'POST',
+            dataType: 'json',
+            success: function (response) {
+                if (response.errors.length > 0) {
+                    var errorMessage = "Errors:\n";
+                    response.errors.forEach(function (error) {
+                        errorMessage += "- " + error + "\n";
+                    });
+                    alert(errorMessage);
+                }
+            }
+        });
+
     });

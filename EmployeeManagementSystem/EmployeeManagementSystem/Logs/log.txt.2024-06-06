@@ -1,0 +1,14 @@
+2024-06-06 23:30:39,367  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (2ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleID], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleID] = @__roleId_0
+ 2024-06-06 23:30:39,378 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,382 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 3ms reading results.
+ 2024-06-06 23:30:39,384 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,386 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (2ms).
+ 2024-06-06 23:30:39,399 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup is scheduled to include Browser Link script injection.
+ 2024-06-06 23:30:39,402 DEBUG Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.? [?] - MESSAGE: Response markup was updated to include Browser Link script injection.
+ 2024-06-06 23:30:39,403 DEBUG Microsoft.EntityFrameworkCore.Infrastructure.? [?] - MESSAGE: 'EmployeeTrackerContext' disposed.
+ 2024-06-06 23:30:39,405 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,408 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Disposed connection to database '' on server '' (2ms).
+ 

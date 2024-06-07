@@ -1,0 +1,35 @@
+2024-06-06 23:30:39,115 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,137 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,139 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-06 23:30:39,141 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (2ms).
+ 2024-06-06 23:30:39,145 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (5ms).
+ 2024-06-06 23:30:39,149 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__userEmail_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[Address], [u].[CompanyID], [u].[CompanyName], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[EmployeeID], [u].[FirstName], [u].[Gender], [u].[isDeleted], [u].[LanguagePreference], [u].[LastLoginDate], [u].[LastName], [u].[PasswordHash], [u].[PasswordSalt], [u].[PhoneNumber], [u].[ProfilePicture], [u].[RoleID], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[SocialMedias], [u].[UpdatedAt], [u].[UserRole]
+FROM [UserDetails] AS [u]
+WHERE [u].[Email] = @__userEmail_0
+ 2024-06-06 23:30:39,153  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (4ms) [Parameters=[@__userEmail_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserID], [u].[Address], [u].[CompanyID], [u].[CompanyName], [u].[CreatedAt], [u].[DateOfBirth], [u].[Email], [u].[EmployeeID], [u].[FirstName], [u].[Gender], [u].[isDeleted], [u].[LanguagePreference], [u].[LastLoginDate], [u].[LastName], [u].[PasswordHash], [u].[PasswordSalt], [u].[PhoneNumber], [u].[ProfilePicture], [u].[RoleID], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[SocialMedias], [u].[UpdatedAt], [u].[UserRole]
+FROM [UserDetails] AS [u]
+WHERE [u].[Email] = @__userEmail_0
+ 2024-06-06 23:30:39,155 DEBUG Microsoft.EntityFrameworkCore.ChangeTracking.? [?] - MESSAGE: Context 'EmployeeTrackerContext' started tracking 'UserDetail' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+ 2024-06-06 23:30:39,157 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,161 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 5ms reading results.
+ 2024-06-06 23:30:39,163 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,165 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closed connection to database 'EmployeeTracker' on server '.\SQLEXPRESS' (2ms).
+ 2024-06-06 23:30:39,168 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opening connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,170 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Opened connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,172 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Creating DbCommand for 'ExecuteReader'.
+ 2024-06-06 23:30:39,174 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Created DbCommand for 'ExecuteReader' (1ms).
+ 2024-06-06 23:30:39,177 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Initialized DbCommand for 'ExecuteReader' (5ms).
+ 2024-06-06 23:30:39,180 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executing DbCommand [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleID], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleID] = @__roleId_0
+ 2024-06-06 23:30:39,183  INFO Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Executed DbCommand (3ms) [Parameters=[@__roleId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleID], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleID] = @__roleId_0
+ 2024-06-06 23:30:39,185 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Closing data reader to 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 2024-06-06 23:30:39,186 DEBUG Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: A data reader for 'EmployeeTracker' on server '.\SQLEXPRESS' is being disposed after spending 1ms reading results.
+ 2024-06-06 23:30:39,188 DEBUG Microsoft.EntityFrameworkCore.Database.Connection.? [?] - MESSAGE: Closing connection to database 'EmployeeTracker' on server '.\SQLEXPRESS'.
+ 

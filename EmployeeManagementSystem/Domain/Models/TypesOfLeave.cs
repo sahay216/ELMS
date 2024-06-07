@@ -12,4 +12,6 @@ public partial class TypesOfLeave
     public bool IsGlobal { get; set; }
 
     public int DefaultDays { get; set; }
+
+    public virtual ICollection<LeaveBalance> LeaveBalances { get; set; } = new List<LeaveBalance>();
 }

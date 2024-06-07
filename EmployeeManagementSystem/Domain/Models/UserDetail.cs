@@ -69,5 +69,7 @@ public partial class UserDetail
 
     public virtual ICollection<LeaveApplication> LeaveApplicationManagers { get; set; } = new List<LeaveApplication>();
 
+    public virtual ICollection<LeaveBalance> LeaveBalances { get; set; } = new List<LeaveBalance>();
+
     public virtual Role? Role { get; set; }
 }

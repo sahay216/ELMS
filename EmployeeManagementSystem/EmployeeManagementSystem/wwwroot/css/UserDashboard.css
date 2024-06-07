@@ -208,3 +208,48 @@
     font-size: 14px;
     color: #999;
 }
+
+.card-content {
+    padding: 10px 0;
+}
+
+
+
+/* Holiday item */
+.holiday-item {
+    margin-bottom: 15px;
+    display: flex;
+
+}
+
+/* Holiday name */
+.holiday-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Holiday name */
+.holiday-name {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Holiday date */
+.holiday-date,
+.holiday-day {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* No holiday message */
+.no-holiday-display {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+}

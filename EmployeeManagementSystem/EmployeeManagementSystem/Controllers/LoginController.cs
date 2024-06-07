@@ -80,9 +80,12 @@ namespace Client.Controllers
 		[HttpPost]
 		public async Task<IActionResult> RegisterEmployee(RegistrationView user)
 		{
-            ModelState.Clear();
-
-			var validationResults = user.Validate(new ValidationContext(user));
+            if (!ModelState.IsValid)
+            {
+                // Return the view with validation errors
+                return View(user);
+            }
+            var validationResults = user.Validate(new ValidationContext(user));
 			foreach (var validationResult in validationResults)
 			{
 				ModelState.AddModelError(validationResult.MemberNames.First(), validationResult.ErrorMessage);
@@ -90,11 +93,14 @@ namespace Client.Controllers
 
             if (ModelState.IsValid)
 			{
-				string encryptionkey = _encryptionsettings.Value.EncryptionKey;
+                var redisService = new RedisService(_distributedCache);
+                int CompanyID = redisService.GetValue<int>(RedisKey.UserID);
+
+                string encryptionkey = _encryptionsettings.Value.EncryptionKey;
 				var AesEncryptor = new AesEncryptor(Options.Create(_encryptionsettings.Value));
 				var passwordhash =  AesEncryptor.Encrypt(user.Password, out string passwordsalt);
-                var companyidstring = _distributedCache.GetString("UserID");
-                int CompanyID = JsonConvert.DeserializeObject<int>(companyidstring);
+                
+                
 				try
 				{
                     bool success = await _databaseOperations.StoreUser(user, passwordhash, passwordsalt, CompanyID);
@@ -112,7 +118,7 @@ namespace Client.Controllers
 				}
             }
 			return View(user);
-		}
+		 }
 		[HttpPost]
 		public async Task<IActionResult> CompanyRegistration(CompanyRegistrationView company)
 		{

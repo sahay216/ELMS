@@ -47,8 +47,14 @@ namespace EmployeeManagementSystem.Controllers
                 redisService.SetValue(RedisKey.NewHires, newHires, TimeSpan.FromMinutes(10));
             }
             ViewBag.newHireUsers = newHires;
-            
 
+            var publicHolidays = redisService.GetValue<List<HolidayView>>(RedisKey.PublicHolidays);
+            if (publicHolidays == null)
+            {
+                publicHolidays = await _databaseOperations.GetPublicHolidays();
+                redisService.SetValue(RedisKey.PublicHolidays, publicHolidays, TimeSpan.FromMinutes(10));
+            }
+            ViewBag.publicHolidays = publicHolidays;
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Login");

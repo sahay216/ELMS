@@ -1,4 +1,4 @@
-﻿@model Domain.ViewModels.RegistrationView
+﻿@model RegistrationView
 
 @{
     ViewData["Title"] = "Signup";
@@ -115,14 +115,14 @@
                 </div>   
             </div>
             <div class="form-input-inline">
-                @foreach (var leave in Model.AddLeaveViews)
+                @for (var leave = 0; leave < Model.AddLeaveViews.Count; leave++)
                 {
                     <div class="form-group leave-balance-group">
-                        <label for="@leave.LeaveTypeID">@leave.LeaveName</label>
+                        <label for="AddLeaveViews[@leave].LeaveTypeID">@Model.AddLeaveViews[leave].LeaveName</label>
                         <div class="input-group">
-                            <button type="button" class="btn btn-outline-secondary" onclick="decrementLeave('@leave.LeaveTypeID')">-</button>
-                            <input type="number" class="form-control" id="@leave.LeaveTypeID" name="Leave[@leave.LeaveTypeID]" value="@leave.AllotedDays" min="0">
-                            <button type="button" class="btn btn-outline-secondary" onclick="incrementLeave('@leave.LeaveTypeID')">+</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="decrementLeave('@leave')">-</button>
+                            <input type="number" class="form-control" id="AddLeaveViews[@leave].AllotedDays" name="AddLeaveViews[@leave].AllotedDays" value="@Model.AddLeaveViews[leave].AllotedDays" min="0">
+                            <button type="button" class="btn btn-outline-secondary" onclick="incrementLeave('@leave')">+</button>
                         </div>
                     </div>
                 }
@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="submit" value="Register" class="btn btn-primary"  />
+            <input type="submit" value="Register" class="btn btn-primary" />
         </div>
                   
         </form>        

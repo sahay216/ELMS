@@ -1,5 +1,4 @@
 ﻿using Domain.ViewModels;
-using Domain.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -24,7 +23,7 @@ namespace Common.JwtToken
                 new Claim(ClaimTypes.Role, Role),
                 new Claim(ClaimTypes.Email, loginview.Email)
             };
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"], claims, expires: DateTime.Now.AddMinutes(1), signingCredentials: credentials);
+            var token = new JwtSecurityToken(_config["Jwt:Issuer"], _config["Jwt:Audience"], claims, expires: DateTime.Now.AddMinutes(5), signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
 
         }

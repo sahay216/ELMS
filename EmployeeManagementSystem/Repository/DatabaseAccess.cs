@@ -6,6 +6,7 @@ using Services.Authentication;
 using System.Transactions;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Globalization;
 
 namespace DatabaseAccess
 {
@@ -106,7 +107,7 @@ namespace DatabaseAccess
                         {
                             var leaveBalance = new LeaveBalance
                             {
-                                EmployeeId = userinfo.EmployeeId,
+                                EmployeeId = userinfo.UserId,
                                 TotalEntitled = leaves.AllotedDays,
                                 LeaveTypeId = leaves.LeaveTypeID,
                                 RemainingLeaves = leaves.AllotedDays,
@@ -123,7 +124,7 @@ namespace DatabaseAccess
                 catch (Exception ex)
                 {
                     await transaction.RollbackAsync();
-                    throw;
+                    throw new InvalidOperationException("An error occurred while registering the user", ex); ;
                 }
             }
         }
@@ -175,6 +176,10 @@ namespace DatabaseAccess
             UserDetail? userDetails = await _trackerContext.UserDetails.FirstOrDefaultAsync(u => u.Email == user.Email);
             if (userDetails != null)
             {
+                if (userDetails.IsDeleted)
+                {
+                    return (false, false);
+                }
                 if ( _loginAuthentication.AuthLogin(user.Password, userDetails.PasswordSalt, userDetails.PasswordHash)){
 
                     bool isfirstTimeLogin = CheckFirstTimeLogin(user);
@@ -431,6 +436,19 @@ namespace DatabaseAccess
                             }).ToList();
             return newhires;
         }
+        public async Task<List<HolidayView>> GetPublicHolidays()
+        {
+            var holidays = await _trackerContext.PublicHolidays.ToListAsync();
+            var holidayList = holidays.Select(h=> new HolidayView
+            {
+                HolidayDate = h.Date,
+                HolidayName = h.Name,
+                HolidayDayofWeek = h.Date.ToString("dddd", new CultureInfo("en-US"))
+            }).ToList();
+
+            return holidayList;
+        }
+
 
         public async Task<AttendanceRecord> StoreAttendanceCheckin(int userID)
         {

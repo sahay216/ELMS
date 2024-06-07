@@ -42,7 +42,7 @@ namespace Domain.ViewModels
             else if (birthdate.AddYears(122).CompareTo(dateNow) < 0) results.Add(new ValidationResult("You are not that old, input a valid date", [nameof(DateOfBirth)]));
             else if (birthdate.AddYears(18).CompareTo(dateNow) > -1) results.Add(new ValidationResult("You must be atleast 18 years old to register", [nameof(DateOfBirth)]));
             if (Role == null || !Regex.Match(Role, "^[a-zA-Z'-]+$").Success) results.Add(new ValidationResult("Name can only have the English alphabet, hyphens, and apostrophes", [nameof(Role)]));
-            if (Department == null || !Regex.Match(Department, "^[a-zA-Z'\\-\\s]+$").Success) results.Add(new ValidationResult("Name can only have the English alphabet, hyphens, and apostrophes", [nameof(Department)]));
+            if (Department == null ) results.Add(new ValidationResult("Enter correct Department", [nameof(Department)]));
             if (ManagerName == null || !Regex.Match(ManagerName, "^[a-zA-Z'\\-\\s]+$").Success) results.Add(new ValidationResult("Please Enter a valid Manager Name", [nameof(ManagerName)]));
 
 

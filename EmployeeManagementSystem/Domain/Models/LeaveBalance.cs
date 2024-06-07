@@ -15,6 +15,8 @@ public partial class LeaveBalance
 
     public int? LeaveTypeId { get; set; }
 
+    public int BalanceId { get; set; }
+
     public virtual UserDetail? Employee { get; set; }
 
     public virtual TypesOfLeave? LeaveType { get; set; }
